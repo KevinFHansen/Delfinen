@@ -13,4 +13,5 @@ public class Payment {
         this.memberPhoneNumber = memberPhoneNumber;
     }
 
+
 }
