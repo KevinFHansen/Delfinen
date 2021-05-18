@@ -5,22 +5,26 @@ public class Member {
     private int age;
     private String email;
     private int phoneNumber;
-    private String address;
-    private String gender;
     private double subscriptionPrice;
+    private String typeOfSub;
+    private String gender;
+    private boolean isMembershipActive;
+    private boolean isMemberSenior;
+    private boolean is60Plus;
 
-    public Member(String name, int age, String email, int phoneNumber, String address, String gender, double subscriptionPrice) {
+    public Member(String name, int age, String email, int phoneNumber, double subscriptionPrice, String typeOfSub, String gender) {
         this.name = name;
         this.age = age;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.gender = gender;
         this.subscriptionPrice = subscriptionPrice;
+        this.typeOfSub = typeOfSub;
+        this.gender = gender;
     }
 
     //getters
-    public String getName() {
+
+    public String getName(){
         return name;
     }
 
@@ -36,45 +40,28 @@ public class Member {
         return phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public double getSubscriptionPrice() {
+        return subscriptionPrice;
+    }
+
+    public String getTypeOfSub() {
+        return typeOfSub;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public double getSubscriptionPrice() {
-        return subscriptionPrice;
+    public boolean isMembershipActive() {
+        return isMembershipActive;
     }
 
-    //setters
-
-    public void setName(String name) {
-        this.name = name;
+    public boolean isMemberSenior() {
+        return isMemberSenior;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public boolean isIs60Plus() {
+        return is60Plus;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setSubscriptionPrice(double subscriptionPrice) {
-        this.subscriptionPrice = subscriptionPrice;
-    }
 }
