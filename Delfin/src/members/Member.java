@@ -23,7 +23,7 @@ public class Member {
     }
 
     //getters
-    //helloworld
+
     public String getName(){
         return name;
     }
