@@ -22,7 +22,7 @@ public class Member {
         this.gender = gender;
     }
 
-    //getters
+    //getters123
 
     public String getName(){
         return name;
