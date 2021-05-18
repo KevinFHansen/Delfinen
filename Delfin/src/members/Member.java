@@ -5,12 +5,11 @@ public class Member {
     private int age;
     private String email;
     private int phoneNumber;
-    private double subscriptionPrice;
-    private String typeOfSub;
+    private double subscriptionFee;
+    private String typeOfSubcription;
     private String gender;
-    private boolean isMembershipActive;
-    private boolean isMemberSenior;
-    private boolean is60Plus;
+    private boolean isMemberActive;
+
 
     public Member(String name, int age, String email, int phoneNumber, double subscriptionPrice, String typeOfSub, String gender) {
         this.name = name;
@@ -56,12 +55,5 @@ public class Member {
         return isMembershipActive;
     }
 
-    public boolean isMemberSenior() {
-        return isMemberSenior;
-    }
-
-    public boolean isIs60Plus() {
-        return is60Plus;
-    }
 
 }
