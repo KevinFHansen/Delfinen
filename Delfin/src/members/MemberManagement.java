@@ -8,7 +8,7 @@ public class MemberManagement {
         registerMember();
     }
 
-    Member member = new Member(null, 0, null,0,null, null, 0);
+    //Member member = new Member(null, 0, null,0,null, null, );
     private ArrayList<Member> memberlist = new ArrayList<>();
 
     public ArrayList<Member> getMemberlist() {
@@ -25,8 +25,8 @@ public class MemberManagement {
 
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please type Name, Age, Email, phone number, address, gender, and subPrice");
-        Member newMember = new Member(userInput.next(), userInput.nextInt(), userInput.next(), userInput.nextInt(), userInput.next(), userInput.next(), userInput.nextDouble());
-        System.out.println(newMember);
+        //Member newMember = new Member(userInput.next(), userInput.nextInt(), userInput.next(), userInput.nextInt(), userInput.next(), userInput.next(), userInput.nextDouble());
+        //System.out.println(newMember);
 
     }
 
