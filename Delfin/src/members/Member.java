@@ -5,21 +5,20 @@ public class Member {
     private int age;
     private String email;
     private int phoneNumber;
-    private double subscriptionPrice;
-    private String typeOfSub;
+    private double subscriptionFee;
+    private String typeOfSubscription;
     private String gender;
-    private boolean isMembershipActive;
-    private boolean isMemberSenior;
-    private boolean is60Plus;
+    private boolean isMemberActive;
 
-    public Member(String name, int age, String email, int phoneNumber, double subscriptionPrice, String typeOfSub, String gender) {
+
+    public Member(String name, int age, String email, int phoneNumber, String typeOfSubscription, String gender, boolean isMemberActive) {
         this.name = name;
         this.age = age;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.subscriptionPrice = subscriptionPrice;
-        this.typeOfSub = typeOfSub;
+        this.typeOfSubscription = typeOfSubscription;
         this.gender = gender;
+        this.isMemberActive = isMemberActive;
     }
 
     //getters123
@@ -40,28 +39,26 @@ public class Member {
         return phoneNumber;
     }
 
-    public double getSubscriptionPrice() {
-        return subscriptionPrice;
+    public double getsubscriptionFee() {
+        return subscriptionFee;
     }
 
     public String getTypeOfSub() {
-        return typeOfSub;
+        return typeOfSubscription;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public boolean isMembershipActive() {
-        return isMembershipActive;
+    public boolean isMemberActive() {
+        return isMemberActive;
     }
 
-    public boolean isMemberSenior() {
-        return isMemberSenior;
-    }
+    // setters
 
-    public boolean isIs60Plus() {
-        return is60Plus;
-    }
 
+    public void setSubscriptionFee(double subscriptionFee) {
+        this.subscriptionFee = subscriptionFee;
+    }
 }
