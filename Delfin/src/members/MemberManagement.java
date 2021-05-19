@@ -89,8 +89,27 @@ public class MemberManagement {
 
     }
 
-    public static void findMember(ArrayList<Member> memberList){
+    public static void findMember1(ArrayList<Member> memberList){
+        String findMember = userInput.next();
+       if(memberList.contains(findMember));
+        System.out.println();
+        System.out.println("Hej");
 
+
+    }
+
+    public static void findMember(ArrayList<Member> memberList){
+        for (Member element : memberList){
+            //if (element.equals(userInput.next() || element.equals(userInput.nextInt()));
+            if (element.equals(userInput.next())) {
+                System.out.println(element);
+                break;
+            }
+
+            else if (element.equals(userInput.nextInt()));
+            System.out.println(element);
+
+        }
     }
 
 
@@ -214,7 +233,7 @@ public class MemberManagement {
             writer.print(memberList.get(i).getTypeOfSubscription() + ";");
             writer.print(memberList.get(i).getGender() + ";");
             writer.print(memberList.get(i).getIsMemberActive() + ";");
-            writer.print(i + 1 + ";");
+          //  writer.print(i + 1 + ";");
             writer.println(memberList.get(i).getHasPaid() + ";");
         }
         writer.close();
@@ -234,8 +253,9 @@ public class MemberManagement {
         MemberManagement memberManagement = new MemberManagement();
         ArrayList<Member> memberList = memberManagement.readMemberList();
         System.out.println(memberList);
-        updateMember();
-        /*registerMember(memberList);
+        findMember(memberList);
+        /*updateMember();
+        registerMember(memberList);
         removeMember(memberList);*/
         System.out.println(memberList);
     }
