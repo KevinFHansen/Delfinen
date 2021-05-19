@@ -32,8 +32,7 @@ public class Payment {
 
             String[] csvAsArray = currentLine.split(";");
 
-            String name = csvAsArray[0];
-            int phoneNumber = Integer.parseInt(csvAsArray[1]);
+
             double subIncome = Double.parseDouble(csvAsArray[2]);
 
 
