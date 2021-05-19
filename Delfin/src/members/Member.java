@@ -63,6 +63,10 @@ public class Member {
         return typeOfSubscription;
     }
 
+    public boolean getIsMemberActive(){
+        return isMemberActive;
+    }
+
     // setters
 
     public void setSubscriptionFee(double subscriptionFee) {
