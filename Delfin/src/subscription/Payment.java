@@ -45,6 +45,36 @@ public class Payment {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
         ArrayList<Double> n = new ArrayList<>();
+
+        double sum = 0;
+        double sum1 = 0;
+        double sum2 = 0;
+
+        while(readCsv.hasNextLine()){
+
+            String currentLine = readCsv.nextLine();
+
+            String[] csvAsArray = currentLine.split(";");
+
+            boolean whoArrears = Boolean.parseBoolean(csvAsArray[3]);
+            double subIncome = Double.parseDouble(csvAsArray[2]);
+
+
+            n.add(subIncome);
+            sum = sum + subIncome;
+
+            if(whoArrears == false){
+                sum1 = sum - subIncome;
+            }
+        }
+        System.out.println("This is the expected sub Income: " + sum);
+        System.out.println("This is the actual sub income: " + sum1);
+    }
+
+    public void actualSubIncome() throws FileNotFoundException {
+        File f = new File("Delfin/Ressources/SubscriptionList.csv");
+        Scanner readCsv = new Scanner(f);
+        ArrayList<Double> n = new ArrayList<>();
         double sum = 0;
         while(readCsv.hasNextLine()){
 
@@ -52,15 +82,16 @@ public class Payment {
 
             String[] csvAsArray = currentLine.split(";");
 
-
+            boolean whoArrears = Boolean.parseBoolean(csvAsArray[3]);
             double subIncome = Double.parseDouble(csvAsArray[2]);
 
 
             n.add(subIncome);
             sum = sum + subIncome;
 
-        }
-        System.out.println("This is the expected sub Income: " + sum);
+            if(whoArrears == false){
 
+            }
+        }
     }
 }
