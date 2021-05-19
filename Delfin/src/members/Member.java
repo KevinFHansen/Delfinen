@@ -69,6 +69,7 @@ public class Member {
         return isMemberActive;
     }
 
+
     public boolean getHasPaid() {
         return hasPaid;
     }
@@ -105,5 +106,24 @@ public class Member {
 
     public void setMemberActive(boolean memberActive) {
         isMemberActive = memberActive;
+    }
+
+    public void setHasPaid(boolean hasPaid) {
+        this.hasPaid = hasPaid;
+    }
+
+    @Override
+    public String   toString() {
+        return "Member{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", subscriptionFee=" + subscriptionFee +
+                ", typeOfSubscription='" + typeOfSubscription + '\'' +
+                ", gender='" + gender + '\'' +
+                ", isMemberActive=" + isMemberActive +
+                ", hasPaid=" + hasPaid +
+                '}';
     }
 }

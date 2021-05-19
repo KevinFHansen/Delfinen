@@ -1,2 +1,3 @@
 name;age;email;phoneNumber;subscriptionType;gender;isMemberActive;hasMemberPaid
-lars;33;larsMail;88888888;buuuuuuuuuulk;male;true;1;true;
+Per;33;larsMail;88888888;buuuuuuuuuulk;male;true;1;false;
+werwerwer;23;werwer;1;werwer;qwer;true;2;false;

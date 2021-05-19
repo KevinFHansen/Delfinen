@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MemberManagement {
 
-    //Member member = new Member(null, 0, null,0,null, null, true, true);
+    Member member = new Member(null, 0, null,0,null, null, true, true);
     private static ArrayList<Member> memberList = new ArrayList<>();
     static Scanner userInput = new Scanner(System.in);
 
@@ -50,7 +51,7 @@ public class MemberManagement {
 
     //Den her metode fungere ikke helt optimalt, ville være smartere hvis man kunne nøjes med at ændre atributter
 
-    public static void updateMember(int phoneNumber) throws FileNotFoundException {
+    public static void updateMember1(int phoneNumber) throws FileNotFoundException {
         System.out.println("Please type the phone number of the member you want to update");
         phoneNumber = userInput.nextInt();
         userInput.nextLine();
@@ -91,6 +92,75 @@ public class MemberManagement {
     public static void findMember(ArrayList<Member> memberList){
     }
 
+
+    public static void updateMember() throws FileNotFoundException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please type phone number of the member u want to update");
+        int phoneNumber = sc.nextInt();
+            Member memberToUpdate = memberList.get(phoneNumber);
+            System.out.println(memberToUpdate);
+            if (phoneNumber == memberToUpdate.getPhoneNumber());
+
+            updateMemberMenu();
+
+            int choice = 10;
+            while (choice != 0) {
+
+                choice = sc.nextInt();
+
+                switch (choice) {
+
+                    case 1:
+                        System.out.println("Update name");
+                        memberToUpdate.setName(sc.next());
+                        break;
+
+                    case 2:
+                        System.out.println("Update age");
+                        memberToUpdate.setAge(sc.nextInt());
+                        break;
+
+                    case 3:
+                        System.out.println("Update email");
+                        memberToUpdate.setEmail(sc.next());
+                        break;
+
+                    case 4:
+                        System.out.println("Update phone number");
+                        memberToUpdate.setPhoneNumber(sc.nextInt());
+                        break;
+
+                    case 5:
+                        System.out.println("Update type of subscription");
+                        memberToUpdate.setTypeOfSubscription(sc.next());
+                        break;
+
+                    case 6:
+                        System.out.println("Update gender");
+                        memberToUpdate.setGender(sc.next());
+                        break;
+
+                    case 7:
+                        System.out.println("Update if member is active or not");
+                        memberToUpdate.setMemberActive(sc.nextBoolean());
+                        break;
+
+                    case 8:
+                        System.out.println("Update payment status");
+                        memberToUpdate.setHasPaid(sc.nextBoolean());
+                        break;
+
+                    case 0:
+                        break;
+
+                }
+                createMemberList(memberList);
+                choice = 0;
+            }
+
+
+    }
+
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
         Scanner readFileScanner = new Scanner(membersList);
@@ -124,6 +194,7 @@ public class MemberManagement {
             if(phoneNumber == memberToRemove.getPhoneNumber());
             //memberList.remove(memberList.get(i));
             memberList.remove(memberToRemove);
+
             createMemberList(memberList);
         }
     }
@@ -158,12 +229,26 @@ public class MemberManagement {
 
 
     public static void main(String[] args) throws IOException {
+        Member member = new Member(null, 0, null,0,null, null, true, true);
         MemberManagement memberManagement = new MemberManagement();
         ArrayList<Member> memberList = memberManagement.readMemberList();
         System.out.println(memberList);
-        registerMember(memberList);
-        removeMember(memberList);
+        updateMember();
+        /*registerMember(memberList);
+        removeMember(memberList);*/
         System.out.println(memberList);
+    }
+
+    public static void updateMemberMenu(){
+        System.out.println("What would u like to update?");
+        System.out.println("1. Update name");
+        System.out.println("2. Update age");
+        System.out.println("3. Update email");
+        System.out.println("4. Update phone number");
+        System.out.println("5. Update type of subscription");
+        System.out.println("6. Update Gender");
+        System.out.println("7. Update if member is active");
+        System.out.println("8. Update if member has paid subscription");
     }
 
 
