@@ -19,10 +19,10 @@ public class Subscription {
 
 
     public static void main(String[] args) throws IOException {
-        Member et = new Member("Joachim",18,"djdjdjd",23232323,"Competitor","Male",false);
-        Member to = new Member("Kevin",17,"djdjdjd",23232323,"Competitor","Male",true);
-        Member tre = new Member("Michael",65,"djdjdjd",23232323,"Competitor","Male",true);
-        Member fire = new Member("Jonas",20,"djdjdjd",23232323,"Competitor","Male",true);
+        Member et = new Member("Joachim",18,"djdjdjd",23232323,"Competitor","Male",false, true);
+        Member to = new Member("Kevin",17,"djdjdjd",23232323,"Competitor","Male",true, false);
+        Member tre = new Member("Michael",65,"djdjdjd",23232323,"Competitor","Male",true, true);
+        Member fire = new Member("Jonas",20,"djdjdjd",23232323,"Competitor","Male",true, false);
 
         generateFee(et);
         generateFee(to);
@@ -69,7 +69,8 @@ public class Subscription {
         for (int i = 0; i < memberSubscriptionList.size(); i++){
             writer.append(memberSubscriptionList.get(i).getName() + ";");
             writer.append(memberSubscriptionList.get(i).getPhoneNumber() + ";");
-            writer.append(memberSubscriptionList.get(i).getsubscriptionFee() + "\n");
+            writer.append(memberSubscriptionList.get(i).getsubscriptionFee() + ";");
+            writer.append(memberSubscriptionList.get(i).getHasPaid() + ("\n"));
         }
         writer.close();
     }
