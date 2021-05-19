@@ -21,7 +21,7 @@ public class Member {
         this.isMemberActive = isMemberActive;
     }
 
-    //getters123
+    //getters
 
     public String getName(){
         return name;
@@ -55,10 +55,45 @@ public class Member {
         return isMemberActive;
     }
 
-    // setters
+    public double getSubscriptionFee() {
+        return subscriptionFee;
+    }
 
+    public String getTypeOfSubscription() {
+        return typeOfSubscription;
+    }
+
+    // setters
 
     public void setSubscriptionFee(double subscriptionFee) {
         this.subscriptionFee = subscriptionFee;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setTypeOfSubscription(String typeOfSubscription) {
+        this.typeOfSubscription = typeOfSubscription;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setMemberActive(boolean memberActive) {
+        isMemberActive = memberActive;
     }
 }
