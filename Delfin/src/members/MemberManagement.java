@@ -90,6 +90,7 @@ public class MemberManagement {
     }
 
     public static void findMember(ArrayList<Member> memberList){
+
     }
 
 
@@ -249,6 +250,7 @@ public class MemberManagement {
         System.out.println("6. Update Gender");
         System.out.println("7. Update if member is active");
         System.out.println("8. Update if member has paid subscription");
+        System.out.println("0. Exit");
     }
 
 
