@@ -9,10 +9,10 @@ public class Member {
     private String typeOfSubscription;
     private String gender;
     private boolean isMemberActive;
-    private boolean isPaid;
+    private boolean hasPaid;
 
 
-    public Member(String name, int age, String email, int phoneNumber, String typeOfSubscription, String gender, boolean isMemberActive) {
+    public Member(String name, int age, String email, int phoneNumber, String typeOfSubscription, String gender, boolean isMemberActive, boolean hasPaid) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -20,6 +20,7 @@ public class Member {
         this.typeOfSubscription = typeOfSubscription;
         this.gender = gender;
         this.isMemberActive = isMemberActive;
+        this.hasPaid = hasPaid;
     }
 
     //getters
@@ -66,6 +67,10 @@ public class Member {
 
     public boolean getIsMemberActive(){
         return isMemberActive;
+    }
+
+    public boolean getHasPaid() {
+        return hasPaid;
     }
 
     // setters

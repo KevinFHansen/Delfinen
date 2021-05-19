@@ -1,5 +1,7 @@
 package subscription;
 
+import members.Member;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,11 +18,18 @@ public class Payment {
     n.viewExpectedSubIncome();
     }
 
+
     public void viewArrears() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
-        
+
+        while(readCsv.hasNext()){
+        String s = readCsv.nextLine();
+
+        }
     }
+
+
     public void viewExpectedSubIncome() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
