@@ -9,6 +9,7 @@ public class Member {
     private String typeOfSubscription;
     private String gender;
     private boolean isMemberActive;
+    private boolean isPaid;
 
 
     public Member(String name, int age, String email, int phoneNumber, String typeOfSubscription, String gender, boolean isMemberActive) {
