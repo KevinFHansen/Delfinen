@@ -41,6 +41,7 @@ public class Subscription {
 
     }
 
+    // sets the attribute SubscriptionFee
 
     public static void generateFee(Member member){
 
