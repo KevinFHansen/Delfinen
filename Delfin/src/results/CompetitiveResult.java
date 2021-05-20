@@ -1,8 +1,6 @@
 package results;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,10 +65,6 @@ public class CompetitiveResult extends Result{
         System.out.println("Write rank in club: ");
         int rankInClub = scn.nextInt();
 
-
-        System.out.println("Write the ranking within the club: ");
-        int rankInClub = scn.nextInt();
-
         System.out.println("Write the date: ");
         String date = scn.nextLine();
 
@@ -80,12 +74,13 @@ public class CompetitiveResult extends Result{
         System.out.println("Write the placement at the competition: ");
         int competitionPlacement = scn.nextInt();
 
-
+        CompetitiveResult register = new CompetitiveResult(memberName, gender, time, distance, disciplin, rankInClub, date, competitionName, competitionPlacement);
     }
 
-    public void printResults(ArrayList<Result> results) throws FileNotFoundException {
+    public void printResults(ArrayList<Result> results) throws IOException {
         File f = new File("Delfin/Ressources/Competitive.csv");
 
+        FileWriter writer = new FileWriter(f, true);
 
     }
 }
