@@ -62,6 +62,11 @@ public class CompetitiveResult extends Result{
         double distance = scn.nextDouble();
 
         System.out.println("Type in disciplin: ");
+        String disciplin = scn.nextLine();
+
+        System.out.println("Write rank in club: ");
+        int rankInClub = scn.nextInt();
+
 
     }
 
