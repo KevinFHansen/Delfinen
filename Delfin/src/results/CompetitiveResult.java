@@ -5,16 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompetitiveResult extends Result{
-    private String competitionName;
-    private int competitionPlacement;
+
     ArrayList<Result> cR = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
+    File f = new File("Delfin/Ressources/Competitive.csv");
 
     public CompetitiveResult(String memberName, String gender, double time, double distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
-        super(memberName, gender, time, distance, discipline, rankInClub, date);
-        this.competitionName = competitionName;
-        this.competitionPlacement = competitionPlacement;
+        super(memberName, gender, time, distance, discipline, rankInClub, date, competitionName, competitionPlacement);
     }
+
 
     public ArrayList<Result> readResults() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/Competitive.csv");
@@ -46,12 +45,12 @@ public class CompetitiveResult extends Result{
         return cR;
     }
 
-    public void registerResult(){
+    public void registerResult(ArrayList<Result> cR) throws IOException {
         System.out.println("Write members name: ");
-        String memberName = scn.nextLine();
+        String memberName = scn.next();
 
         System.out.println("Write gender of competitor: ");
-        String gender = scn.nextLine();
+        String gender = scn.next();
 
         System.out.println("Type in time: ");
         double time = scn.nextDouble();
@@ -60,27 +59,69 @@ public class CompetitiveResult extends Result{
         double distance = scn.nextDouble();
 
         System.out.println("Type in disciplin: ");
-        String disciplin = scn.nextLine();
+        String disciplin = scn.next();
 
         System.out.println("Write rank in club: ");
         int rankInClub = scn.nextInt();
 
         System.out.println("Write the date: ");
-        String date = scn.nextLine();
+        String date = scn.next();
 
         System.out.println("Write the name of the competition: ");
-        String competitionName = scn.nextLine();
+        String competitionName = scn.next();
 
         System.out.println("Write the placement at the competition: ");
         int competitionPlacement = scn.nextInt();
 
         CompetitiveResult register = new CompetitiveResult(memberName, gender, time, distance, disciplin, rankInClub, date, competitionName, competitionPlacement);
+        cR.add(register);
+        printResults(cR);
     }
 
     public void printResults(ArrayList<Result> results) throws IOException {
         File f = new File("Delfin/Ressources/Competitive.csv");
+        PrintWriter writer = new PrintWriter(f);
+        writer.print("");
+        writer.println("memberName;gender;time;distance;disciplin;rankInClub;date;competitionName;competitionPlacement");
+        for(int i = 0; i < cR.size(); i++){
+            writer.print(cR.get(i).getMemberName() + ";");
+            writer.print(cR.get(i).getGender() + ";");
+            writer.print(cR.get(i).getTime() + ";");
+            writer.print(cR.get(i).getDistance() + ";");
+            writer.print(cR.get(i).getDiscipline() + ";");
+            writer.print(cR.get(i).getRankInClub() + ";");
+            writer.print(cR.get(i).getDate() + ";");
+            writer.print(cR.get(i).getCompetitionName() + ";");
+            writer.println(cR.get(i).getCompetitionPlacement() + "");
 
-        FileWriter writer = new FileWriter(f, true);
+        }
+        writer.close();
+    }
+
+    public void viewTop5() throws FileNotFoundException {
+        Scanner readCsv = new Scanner(f);
+
+        while(readCsv.hasNext()){
+            String currentLine = readCsv.nextLine();
+
+            String[] csvAsArray = currentLine.split(";");
+
+            String memberName = csvAsArray[0];
+            String gender = csvAsArray[1];
+            double time = Double.parseDouble(csvAsArray[2]);
+            double distance = Double.parseDouble(csvAsArray[3]);
+            String discilpline = csvAsArray[4];
+
+            if(discilpline == "crawl" && gender == "male" && distance == 50 && time > time){
+
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        CompetitiveResult n = new CompetitiveResult(null, null, 0.0, 0.0, null, 1, null, null, 1);
+        System.out.println(n.readResults());
+        n.registerResult(n.cR);
 
     }
 }

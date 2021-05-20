@@ -253,11 +253,12 @@ public class MemberManagement {
         MemberManagement memberManagement = new MemberManagement();
         ArrayList<Member> memberList = memberManagement.readMemberList();
         System.out.println(memberList);
-        findMember(memberList);
+        //findMember(memberList);
         /*updateMember();
         registerMember(memberList);
         removeMember(memberList);*/
         System.out.println(memberList);
+
     }
 
     public static void updateMemberMenu(){
