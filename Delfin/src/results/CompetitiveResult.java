@@ -63,6 +63,19 @@ public class CompetitiveResult extends Result{
 
         System.out.println("Type in disciplin: ");
 
+        System.out.println("Write the ranking within the club: ");
+        int rankInClub = scn.nextInt();
+
+        System.out.println("Write the date: ");
+        String date = scn.nextLine();
+
+        System.out.println("Write the name of the competition: ");
+        String competitionName = scn.nextLine();
+
+        System.out.println("Write the placement at the competition: ");
+        int competitionPlacement = scn.nextInt();
+
+
     }
 
     public void printResults(ArrayList<Result> results) throws FileNotFoundException {
