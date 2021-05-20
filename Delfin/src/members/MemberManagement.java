@@ -51,7 +51,7 @@ public class MemberManagement {
 
     //Den her metode fungere ikke helt optimalt, ville være smartere hvis man kunne nøjes med at ændre atributter
 
-    public static void updateMember1(int phoneNumber) throws FileNotFoundException {
+    /*public static void updateMember1(int phoneNumber) throws FileNotFoundException {
         System.out.println("Please type the phone number of the member you want to update");
         phoneNumber = userInput.nextInt();
         userInput.nextLine();
@@ -87,7 +87,7 @@ public class MemberManagement {
         createMemberList(memberList);
 
 
-    }
+    }*/
 
     public static void findMember1(ArrayList<Member> memberList){
         String findMember = userInput.next();
