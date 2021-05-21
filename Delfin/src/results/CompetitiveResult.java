@@ -112,6 +112,150 @@ public class CompetitiveResult extends Result{
             double distance = Double.parseDouble(csvAsArray[3]);
             String discilpline = csvAsArray[4];
 
+            int userInput = scn.nextInt();
+
+            System.out.println("Choose Top5 list");
+            System.out.println("1. Crawl/Men/100 Meters");
+            System.out.println("2. Crawl/Men/200 Meters");
+            System.out.println("3. Crawl/Female/100 Meters");
+            System.out.println("4. Crawl/Female/200 Meters");
+            System.out.println("5. BreastStroke/Men/100 Meters");
+            System.out.println("6. BreastStroke/Men/200 Meters");
+            System.out.println("7. BreastStroke/Female/100 Meters");
+            System.out.println("8. BreastStroke/Female/200 Meters");
+            System.out.println("9. BackCrawl/Men/100 Meters");
+            System.out.println("10. BackCrawl/Men/200 Meters");
+            System.out.println("11. BackCrawl/Female/100 Meters");
+            System.out.println("12. BackCrawl/Female/200 Meters");
+            System.out.println("0. Back");
+
+            switch (userInput){
+
+                case 1:
+                    System.out.println("Top 5 - Crawl/Men/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 2:
+                    System.out.println("Top 5 - Crawl/Men/200 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 3:
+                    System.out.println("Top 5 - Crawl/Female/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 4:
+                    System.out.println("Top 5 - Crawl/Female/200 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 5:
+                    System.out.println("Top 5 - BreastStroke/Men/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 6:
+                    System.out.println("Top 5 - BreastStroke/Men/200 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 7:
+                    System.out.println("Top 5 - BreastStroke/Female/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 8:
+                    System.out.println("Top 5 - BreastStroke/Female/200 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 9:
+                    System.out.println("Top 5 - BackCrawl/Men/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 10:
+                    System.out.println("Top 5 - BackCrawl/Men/200 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 11:
+                    System.out.println("11. BackCrawl/Female/100 Meters");
+                    //PRINT TOP5
+                    break;
+
+                case 12:
+                    
+
+
+
+
+
+
+            }
+
+            /*
+            String choice = scn.next();
+            double choice1 = scn.nextDouble();
+
+            switch (userInput){
+
+                case 1:
+                    System.out.println("Crawl");
+                    System.out.println("Choose Male or Female");
+
+                    if (choice == "Male" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (choice == "Male" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (choice == "Female" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (choice == "Female" && choice1 == 200){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else {
+                        System.out.println("Wrong input");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Breaststroke");
+                    System.out.println("Choose Male or Female");
+
+                    if (choice == "Male" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (userInput == 2 && choice == "Male" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (choice == "Female" && choice1 == 100){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else if (choice == "Female" && choice1 == 200){
+                        //DO STUFF
+                        //DO STUFF
+                    }
+                    else {
+                        System.out.println("Wrong input");
+                    }
+
+                case 3:
+                    System.out.println("Back");
+                    break;
+            }*/
+
             if(discilpline == "crawl" && gender == "male" && distance == 50 && time > time){
 
             }
