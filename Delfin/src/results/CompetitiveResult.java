@@ -112,6 +112,7 @@ public class CompetitiveResult extends Result{
             double distance = Double.parseDouble(csvAsArray[3]);
             String discilpline = csvAsArray[4];
 
+
             if(discilpline == "crawl" && gender == "male" && distance == 50 && time > time){
 
             }
