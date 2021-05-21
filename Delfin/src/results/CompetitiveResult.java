@@ -2,15 +2,17 @@ package results;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class CompetitiveResult extends Result{
-
+    double time;
     ArrayList<Result> cR = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
     File f = new File("Delfin/Ressources/Competitive.csv");
+    //CompetitiveResult c = new CompetitiveResult(null, null, 0.0, 0, null, 0, null, null, 0);
 
-    public CompetitiveResult(String memberName, String gender, double time, double distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
+    public CompetitiveResult(String memberName, String gender, double time, int distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
         super(memberName, gender, time, distance, discipline, rankInClub, date, competitionName, competitionPlacement);
     }
 
@@ -32,7 +34,7 @@ public class CompetitiveResult extends Result{
             String membername = lineAsArray[0];
             String gender = lineAsArray[1];
             double time = Double.parseDouble(lineAsArray[2]);
-            double distance = Double.parseDouble(lineAsArray[3]);
+            int distance = Integer.parseInt(lineAsArray[3]);
             String discipline = lineAsArray[4];
             int rankInClub = Integer.parseInt(lineAsArray[5]);
             String date = lineAsArray[6];
@@ -56,7 +58,7 @@ public class CompetitiveResult extends Result{
         double time = scn.nextDouble();
 
         System.out.println("Type distance: ");
-        double distance = scn.nextDouble();
+        int distance = scn.nextInt();
 
         System.out.println("Type in disciplin: ");
         String disciplin = scn.next();
@@ -100,17 +102,29 @@ public class CompetitiveResult extends Result{
 
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
+        readCsv.nextLine();
+        System.out.println(cR);
 
         while(readCsv.hasNext()){
             String currentLine = readCsv.nextLine();
 
             String[] csvAsArray = currentLine.split(";");
 
-            String memberName = csvAsArray[0];
+            String membername = csvAsArray[0];
             String gender = csvAsArray[1];
             double time = Double.parseDouble(csvAsArray[2]);
-            double distance = Double.parseDouble(csvAsArray[3]);
-            String discilpline = csvAsArray[4];
+            int distance = Integer.parseInt(csvAsArray[3]);
+            String discipline = csvAsArray[4];
+            int rankInClub = Integer.parseInt(csvAsArray[5]);
+            String date = csvAsArray[6];
+            String competitionName = csvAsArray[7];
+            int competitionPlacement = Integer.parseInt(csvAsArray[8]);
+
+            if(discipline == "crawl" && gender == "male" && distance == 100){
+                Collections.sort(cR);
+            }
+
+            /*
 
             int userInput = scn.nextInt();
 
@@ -133,7 +147,7 @@ public class CompetitiveResult extends Result{
 
                 case 1:
                     System.out.println("Top 5 - Crawl/Men/100 Meters");
-                    //PRINT TOP5
+
                     break;
 
                 case 2:
@@ -196,7 +210,7 @@ public class CompetitiveResult extends Result{
 
             }
 
-            /*
+
             String choice = scn.next();
             double choice1 = scn.nextDouble();
 
@@ -254,19 +268,33 @@ public class CompetitiveResult extends Result{
                 case 3:
                     System.out.println("Back");
                     break;
-            }*/
-
-
-            if(discilpline == "crawl" && gender == "male" && distance == 50 && time > time){
-
             }
+*/
         }
+
+
     }
 
     public static void main(String[] args) throws IOException {
-        CompetitiveResult n = new CompetitiveResult(null, null, 0.0, 0.0, null, 1, null, null, 1);
-        System.out.println(n.readResults());
-        n.registerResult(n.cR);
+        CompetitiveResult n = new CompetitiveResult(null, null, 0.0, 0, null, 1, null, null, 1);
+        //System.out.println(n.readResults());
+        //n.registerResult(n.cR);
+        n.readResults();
+        n.viewTop5();
+        System.out.println(n.cR);
 
     }
+    @Override
+    public int compareTo(Result other) {
+
+        if (this.time > other.getTime()){
+            return 1;
+        }
+        else if(this.time < other.getTime()){
+            return -1;
+        }
+        else
+            return 0;
+    }
+
 }

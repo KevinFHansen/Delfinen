@@ -3,11 +3,11 @@ package results;
 import java.io.File;
 import java.util.ArrayList;
 
-public abstract class Result {
+public abstract class Result implements Comparable<Result> {
     private String memberName;
     private String gender;
     private double time;
-    private double distance;
+    private int distance;
     private String discipline;
     private int rankInClub;
     private String date;
@@ -15,7 +15,7 @@ public abstract class Result {
     private int competitionPlacement;
 
 
-    public Result(String memberName, String gender, double time, double distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
+    public Result(String memberName, String gender, double time, int distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
         this.memberName = memberName;
         this.gender = gender;
         this.time = time;
@@ -39,7 +39,7 @@ public abstract class Result {
         return time;
     }
 
-    public double getDistance() {
+    public int getDistance() {
         return distance;
     }
 
@@ -77,4 +77,5 @@ public abstract class Result {
                 ", competitionPlacement=" + competitionPlacement +
                 '}';
     }
+
 }
