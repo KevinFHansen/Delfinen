@@ -219,7 +219,7 @@ public class MemberManagement {
         }
     }
 
-    public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
+    public static void createMemberList(ArrayList<Member> memberList) throws File   NotFoundException {
         File fout = new File("Delfin/Ressources/Members.csv");
         PrintWriter writer = new PrintWriter(fout);
         writer.print("");

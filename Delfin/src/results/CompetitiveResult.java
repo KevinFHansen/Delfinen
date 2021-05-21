@@ -78,7 +78,7 @@ public class CompetitiveResult extends Result{
         printResults(cR);
     }
 
-    public void printResults(ArrayList<Result> results) throws IOException {
+    public void printResults(ArrayList<Result> results) throws FileNotFoundException {
         File f = new File("Delfin/Ressources/Competitive.csv");
         PrintWriter writer = new PrintWriter(f);
         writer.print("");
