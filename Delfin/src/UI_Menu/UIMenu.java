@@ -19,9 +19,6 @@ public class UIMenu {
     Scanner scn = new Scanner(System.in);
 
 
-
-
-
     public void startUI() throws IOException {
         ArrayList<Member> memberList = memberManagement.readMemberList();
 
@@ -44,7 +41,7 @@ public class UIMenu {
                 System.out.println("1. Register Member");
                 System.out.println("2. Update Member");
                 System.out.println("3. Remove Member");
-                System.out.println("4. Find Member");
+                System.out.println("4. View Member");
                 System.out.println("5. Back");
 
                 int choice = scn.nextInt();
@@ -61,10 +58,11 @@ public class UIMenu {
 
                 }
                 else if (choice == 4){
-                    memberManagement.findMember(memberList);
+                    memberManagement.viewMember(memberList);
 
                 }
                 else if (choice == 5){
+                    System.out.println("Back");
 
                 }
                 else {
