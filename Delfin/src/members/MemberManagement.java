@@ -89,28 +89,13 @@ public class MemberManagement {
 
     }*/
 
-    public static void findMember1(ArrayList<Member> memberList){
-        String findMember = userInput.next();
-       if(memberList.contains(findMember));
-        System.out.println();
-        System.out.println("Hej");
-
-
-    }
-
-    public static void findMember(ArrayList<Member> memberList){
-        for (Member element : memberList){
-            //if (element.equals(userInput.next() || element.equals(userInput.nextInt()));
-            if (element.equals(userInput.next())) {
-                System.out.println(element);
-                break;
-            }
-
-            else if (element.equals(userInput.nextInt()));
-            System.out.println(element);
-
+    public static void viewMember(ArrayList<Member> memberList){
+        System.out.println("Memberlist");
+        for (int i = 0; i < memberList.size(); i++){
+            System.out.println(memberList.get(i));
         }
     }
+
 
 
     public static void updateMember() throws FileNotFoundException {
@@ -252,12 +237,10 @@ public class MemberManagement {
         Member member = new Member(null, 0, null,0,null, null, true, true);
         MemberManagement memberManagement = new MemberManagement();
         ArrayList<Member> memberList = memberManagement.readMemberList();
-        System.out.println(memberList);
         //findMember(memberList);
         /*updateMember();
         registerMember(memberList);
         removeMember(memberList);*/
-        System.out.println(memberList);
 
     }
 

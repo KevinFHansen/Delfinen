@@ -10,7 +10,6 @@ public class CompetitiveResult extends Result{
     ArrayList<Result> cR = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
     File f = new File("Delfin/Ressources/Competitive.csv");
-    //CompetitiveResult c = new CompetitiveResult(null, null, 0.0, 0, null, 0, null, null, 0);
 
     public CompetitiveResult(String memberName, String gender, double time, int distance, String discipline, int rankInClub, String date, String competitionName, int competitionPlacement) {
         super(memberName, gender, time, distance, discipline, rankInClub, date, competitionName, competitionPlacement);
@@ -34,7 +33,7 @@ public class CompetitiveResult extends Result{
             String membername = lineAsArray[0];
             String gender = lineAsArray[1];
             double time = Double.parseDouble(lineAsArray[2]);
-            int distance = Integer.parseInt(lineAsArray[3]);
+            double distance = Double.parseDouble(lineAsArray[3]);
             String discipline = lineAsArray[4];
             int rankInClub = Integer.parseInt(lineAsArray[5]);
             String date = lineAsArray[6];
@@ -100,6 +99,40 @@ public class CompetitiveResult extends Result{
         writer.close();
     }
 
+    public void top5Menu(){
+        System.out.println("Choose Top5 list");
+        System.out.println("1. Crawl/Men/100 Meters");
+        System.out.println("2. Crawl/Men/200 Meters");
+        System.out.println("3. Crawl/Female/100 Meters");
+        System.out.println("4. Crawl/Female/200 Meters");
+        System.out.println("5. BreastStroke/Men/100 Meters");
+        System.out.println("6. BreastStroke/Men/200 Meters");
+        System.out.println("7. BreastStroke/Female/100 Meters");
+        System.out.println("8. BreastStroke/Female/200 Meters");
+        System.out.println("9. BackCrawl/Men/100 Meters");
+        System.out.println("10. BackCrawl/Men/200 Meters");
+        System.out.println("11. BackCrawl/Female/100 Meters");
+        System.out.println("12. BackCrawl/Female/200 Meters");
+        System.out.println("0. Back");
+    }
+
+    public void viewTop5() throws FileNotFoundException {
+        Scanner readCsv = new Scanner(f);
+
+        while(readCsv.hasNext()){
+            String currentLine = readCsv.nextLine();
+
+            String[] csvAsArray = currentLine.split(";");
+
+            String memberName = csvAsArray[0];
+            String gender = csvAsArray[1];
+            double time = Double.parseDouble(csvAsArray[2]);
+            double distance = Double.parseDouble(csvAsArray[3]);
+            String discilpline = csvAsArray[4];
+
+            int userInput = scn.nextInt();
+
+            top5Menu();
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
         readCsv.nextLine();
@@ -147,7 +180,7 @@ public class CompetitiveResult extends Result{
 
                 case 1:
                     System.out.println("Top 5 - Crawl/Men/100 Meters");
-
+                    //PRINT TOP5
                     break;
 
                 case 2:
@@ -196,11 +229,14 @@ public class CompetitiveResult extends Result{
                     break;
 
                 case 11:
-                    System.out.println("11. BackCrawl/Female/100 Meters");
+                    System.out.println("Top 5 - BackCrawl/Female/100 Meters");
                     //PRINT TOP5
                     break;
 
                 case 12:
+                    System.out.println("Top 5 -  BackCrawl/Female/200 Meters");
+                    //PRINT TOP5
+                    break;
 
 
 
