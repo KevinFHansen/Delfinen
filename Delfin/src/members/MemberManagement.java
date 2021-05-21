@@ -198,8 +198,9 @@ public class MemberManagement {
             Member memberToRemove = memberList.get(i);
             if(phoneNumber == memberToRemove.getPhoneNumber());
             //memberList.remove(memberList.get(i));
-            memberList.remove(memberToRemove);
 
+            //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
+            memberList.remove(memberToRemove);
             createMemberList(memberList);
         }
     }
