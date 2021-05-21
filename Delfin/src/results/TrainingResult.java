@@ -14,8 +14,4 @@ public class TrainingResult extends Result{
         super(memberName, gender, time, distance, discipline, rankInClub, date, competitionName, competitionPlacement);
     }
 
-    @Override
-    public int compareTo(Result o) {
-        return 0;
-    }
 }

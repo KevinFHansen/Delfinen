@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class CompetitiveResult extends Result{
+public class CompetitiveResult extends Result implements Comparable<CompetitiveResult>{
     double time;
     ArrayList<Result> cR = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
@@ -137,27 +137,13 @@ public class CompetitiveResult extends Result{
             int competitionPlacement = Integer.parseInt(csvAsArray[8]);
 
             if(discipline == "crawl" && gender == "male" && distance == 100){
-                Collections.sort(cR);
+
             }
-            top5Menu();
+
+            //top5Menu();
             /*
 
             int userInput = scn.nextInt();
-
-            System.out.println("Choose Top5 list");
-            System.out.println("1. Crawl/Men/100 Meters");
-            System.out.println("2. Crawl/Men/200 Meters");
-            System.out.println("3. Crawl/Female/100 Meters");
-            System.out.println("4. Crawl/Female/200 Meters");
-            System.out.println("5. BreastStroke/Men/100 Meters");
-            System.out.println("6. BreastStroke/Men/200 Meters");
-            System.out.println("7. BreastStroke/Female/100 Meters");
-            System.out.println("8. BreastStroke/Female/200 Meters");
-            System.out.println("9. BackCrawl/Men/100 Meters");
-            System.out.println("10. BackCrawl/Men/200 Meters");
-            System.out.println("11. BackCrawl/Female/100 Meters");
-            System.out.println("12. BackCrawl/Female/200 Meters");
-            System.out.println("0. Back");
 
             switch (userInput){
 
@@ -220,73 +206,6 @@ public class CompetitiveResult extends Result{
                     System.out.println("Top 5 -  BackCrawl/Female/200 Meters");
                     //PRINT TOP5
                     break;
-
-
-
-
-
-
-
-            }
-
-
-            String choice = scn.next();
-            double choice1 = scn.nextDouble();
-
-            switch (userInput){
-
-                case 1:
-                    System.out.println("Crawl");
-                    System.out.println("Choose Male or Female");
-
-                    if (choice == "Male" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (choice == "Male" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (choice == "Female" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (choice == "Female" && choice1 == 200){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else {
-                        System.out.println("Wrong input");
-                    }
-                    break;
-
-                case 2:
-                    System.out.println("Breaststroke");
-                    System.out.println("Choose Male or Female");
-
-                    if (choice == "Male" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (userInput == 2 && choice == "Male" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (choice == "Female" && choice1 == 100){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else if (choice == "Female" && choice1 == 200){
-                        //DO STUFF
-                        //DO STUFF
-                    }
-                    else {
-                        System.out.println("Wrong input");
-                    }
-
-                case 3:
-                    System.out.println("Back");
-                    break;
             }
 */
         }
@@ -295,16 +214,17 @@ public class CompetitiveResult extends Result{
     }
 
     public static void main(String[] args) throws IOException {
-        CompetitiveResult n = new CompetitiveResult(null, null, 0.0, 0, null, 1, null, null, 1);
+        CompetitiveResult instansCompetitive = new CompetitiveResult(null, null, 0.0, 0, null, 1, null, null, 1);
         //System.out.println(n.readResults());
         //n.registerResult(n.cR);
-        n.readResults();
-        n.viewTop5();
-        System.out.println(n.cR);
+        instansCompetitive.readResults();
+        instansCompetitive.viewTop5();
+
+
 
     }
     @Override
-    public int compareTo(Result other) {
+    public int compareTo(CompetitiveResult other) {
 
         if (this.time > other.getTime()){
             return 1;
@@ -315,5 +235,4 @@ public class CompetitiveResult extends Result{
         else
             return 0;
     }
-
 }

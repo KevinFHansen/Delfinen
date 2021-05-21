@@ -3,7 +3,7 @@ package results;
 import java.io.File;
 import java.util.ArrayList;
 
-public abstract class Result implements Comparable<Result> {
+public class Result {
     private String memberName;
     private String gender;
     private double time;
@@ -77,5 +77,6 @@ public abstract class Result implements Comparable<Result> {
                 ", competitionPlacement=" + competitionPlacement +
                 '}';
     }
+
 
 }
