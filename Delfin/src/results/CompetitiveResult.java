@@ -33,7 +33,7 @@ public class CompetitiveResult extends Result{
             String membername = lineAsArray[0];
             String gender = lineAsArray[1];
             double time = Double.parseDouble(lineAsArray[2]);
-            double distance = Double.parseDouble(lineAsArray[3]);
+            int distance = Integer.parseInt(lineAsArray[3]);
             String discipline = lineAsArray[4];
             int rankInClub = Integer.parseInt(lineAsArray[5]);
             String date = lineAsArray[6];
@@ -118,23 +118,6 @@ public class CompetitiveResult extends Result{
 
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
-
-        while(readCsv.hasNext()){
-            String currentLine = readCsv.nextLine();
-
-            String[] csvAsArray = currentLine.split(";");
-
-            String memberName = csvAsArray[0];
-            String gender = csvAsArray[1];
-            double time = Double.parseDouble(csvAsArray[2]);
-            double distance = Double.parseDouble(csvAsArray[3]);
-            String discilpline = csvAsArray[4];
-
-            int userInput = scn.nextInt();
-
-            top5Menu();
-    public void viewTop5() throws FileNotFoundException {
-        Scanner readCsv = new Scanner(f);
         readCsv.nextLine();
         System.out.println(cR);
 
@@ -156,7 +139,7 @@ public class CompetitiveResult extends Result{
             if(discipline == "crawl" && gender == "male" && distance == 100){
                 Collections.sort(cR);
             }
-
+            top5Menu();
             /*
 
             int userInput = scn.nextInt();
