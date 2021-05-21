@@ -98,6 +98,23 @@ public class CompetitiveResult extends Result{
         writer.close();
     }
 
+    public void top5Menu(){
+        System.out.println("Choose Top5 list");
+        System.out.println("1. Crawl/Men/100 Meters");
+        System.out.println("2. Crawl/Men/200 Meters");
+        System.out.println("3. Crawl/Female/100 Meters");
+        System.out.println("4. Crawl/Female/200 Meters");
+        System.out.println("5. BreastStroke/Men/100 Meters");
+        System.out.println("6. BreastStroke/Men/200 Meters");
+        System.out.println("7. BreastStroke/Female/100 Meters");
+        System.out.println("8. BreastStroke/Female/200 Meters");
+        System.out.println("9. BackCrawl/Men/100 Meters");
+        System.out.println("10. BackCrawl/Men/200 Meters");
+        System.out.println("11. BackCrawl/Female/100 Meters");
+        System.out.println("12. BackCrawl/Female/200 Meters");
+        System.out.println("0. Back");
+    }
+
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
 
@@ -114,20 +131,7 @@ public class CompetitiveResult extends Result{
 
             int userInput = scn.nextInt();
 
-            System.out.println("Choose Top5 list");
-            System.out.println("1. Crawl/Men/100 Meters");
-            System.out.println("2. Crawl/Men/200 Meters");
-            System.out.println("3. Crawl/Female/100 Meters");
-            System.out.println("4. Crawl/Female/200 Meters");
-            System.out.println("5. BreastStroke/Men/100 Meters");
-            System.out.println("6. BreastStroke/Men/200 Meters");
-            System.out.println("7. BreastStroke/Female/100 Meters");
-            System.out.println("8. BreastStroke/Female/200 Meters");
-            System.out.println("9. BackCrawl/Men/100 Meters");
-            System.out.println("10. BackCrawl/Men/200 Meters");
-            System.out.println("11. BackCrawl/Female/100 Meters");
-            System.out.println("12. BackCrawl/Female/200 Meters");
-            System.out.println("0. Back");
+            top5Menu();
 
             switch (userInput){
 
@@ -182,18 +186,14 @@ public class CompetitiveResult extends Result{
                     break;
 
                 case 11:
-                    System.out.println("11. BackCrawl/Female/100 Meters");
+                    System.out.println("Top 5 - BackCrawl/Female/100 Meters");
                     //PRINT TOP5
                     break;
 
                 case 12:
-                    
-
-
-
-
-
-
+                    System.out.println("Top 5 -  BackCrawl/Female/200 Meters");
+                    //PRINT TOP5
+                    break;
             }
 
             /*
