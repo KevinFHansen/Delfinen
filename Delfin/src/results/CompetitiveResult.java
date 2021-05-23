@@ -77,6 +77,12 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
         printResults(cR);
     }
 
+    public void changeResults(ArrayList<Result> cR){
+        System.out.println("Write the name of the members data you want to change: ");
+        String nameOfChange = scn.nextLine();
+
+    }
+
     public void printResults(ArrayList<Result> results) throws IOException {
         File f = new File("Delfin/Ressources/Competitive.csv");
         PrintWriter writer = new PrintWriter(f);
@@ -120,8 +126,6 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
         System.out.println(cR);
 
         while(readCsv.hasNext()){
-            CompetitiveResult c = new CompetitiveResult(null, null, 0,0, null, 0, null, null, 0 );
-
             String currentLine = readCsv.nextLine();
 
             String[] csvAsArray = currentLine.split(";");
