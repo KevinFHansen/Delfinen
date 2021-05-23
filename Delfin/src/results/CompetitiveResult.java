@@ -1,9 +1,7 @@
 package results;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class CompetitiveResult extends Result implements Comparable<CompetitiveResult>{
     double time;
@@ -122,6 +120,8 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
         System.out.println(cR);
 
         while(readCsv.hasNext()){
+            CompetitiveResult c = new CompetitiveResult(null, null, 0,0, null, 0, null, null, 0 );
+
             String currentLine = readCsv.nextLine();
 
             String[] csvAsArray = currentLine.split(";");
@@ -131,14 +131,13 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
             double time = Double.parseDouble(csvAsArray[2]);
             int distance = Integer.parseInt(csvAsArray[3]);
             String discipline = csvAsArray[4];
-            int rankInClub = Integer.parseInt(csvAsArray[5]);
-            String date = csvAsArray[6];
-            String competitionName = csvAsArray[7];
-            int competitionPlacement = Integer.parseInt(csvAsArray[8]);
+
 
             if(discipline == "crawl" && gender == "male" && distance == 100){
 
+
             }
+
 
             //top5Menu();
             /*
@@ -219,7 +218,6 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
         //n.registerResult(n.cR);
         instansCompetitive.readResults();
         instansCompetitive.viewTop5();
-
 
 
     }

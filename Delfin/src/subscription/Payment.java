@@ -48,7 +48,6 @@ public class Payment {
 
         double sum = 0;
         double sum1 = 0;
-        double sum2 = 0;
 
         while(readCsv.hasNextLine()){
 
