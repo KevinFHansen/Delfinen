@@ -98,12 +98,18 @@ public class MemberManagement {
 
 
 
-    public static void updateMember() throws FileNotFoundException {
+    public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please type phone number of the member u want to update");
-        int phoneNumber = sc.nextInt();
+
+        //for (int i = 0; i < memberList.size(); i++){
+          //  memberList.get(i).getPhoneNumber();
+
+            int phoneNumber = sc.nextInt();
             Member memberToUpdate = memberList.get(phoneNumber);
+
             System.out.println(memberToUpdate);
+
             if (phoneNumber == memberToUpdate.getPhoneNumber());
 
             updateMemberMenu();
@@ -163,8 +169,8 @@ public class MemberManagement {
                 choice = 0;
             }
 
-
-    }
+        }
+    //}
 
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
@@ -193,16 +199,19 @@ public class MemberManagement {
 
     public static void removeMember(ArrayList<Member> memberList) throws IOException {
         System.out.println("Please type phone number of the member you want to remove");
+
         int phoneNumber = userInput.nextInt();
         for (int i = 0; i <= memberList.size(); i++) {
             Member memberToRemove = memberList.get(i);
             if(phoneNumber == memberToRemove.getPhoneNumber());
-            //memberList.remove(memberList.get(i));
+            memberList.remove(memberToRemove);
+           // memberList.remove(memberList.get(i));
 
             //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
-            memberList.remove(memberToRemove);
-            createMemberList(memberList);
+           // memberList.remove(memberToRemove);
+
         }
+        createMemberList(memberList);
     }
 
     public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
