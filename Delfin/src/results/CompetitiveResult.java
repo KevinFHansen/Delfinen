@@ -123,7 +123,8 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
         readCsv.nextLine();
-        System.out.println(cR);
+
+        ArrayList<Double> timeArrayList = new ArrayList<>();
 
         while(readCsv.hasNext()){
             String currentLine = readCsv.nextLine();
@@ -136,11 +137,18 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
             int distance = Integer.parseInt(csvAsArray[3]);
             String discipline = csvAsArray[4];
 
+            timeArrayList.add(time);
 
-            if(discipline == "crawl" && gender == "male" && distance == 100){
+            //System.out.println(timeArrayList);
 
-
+            //System.out.println(timeArrayList);
+            Collections.sort(timeArrayList);
+            for(double counter : timeArrayList){
+                System.out.println(counter);
             }
+
+
+
 
 
             //top5Menu();
@@ -225,6 +233,7 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
 
 
     }
+
     @Override
     public int compareTo(CompetitiveResult other) {
 
