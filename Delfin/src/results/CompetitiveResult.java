@@ -5,6 +5,7 @@ import java.util.*;
 
 public class CompetitiveResult extends Result implements Comparable<CompetitiveResult>{
     double time;
+
     ArrayList<Result> cR = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
     File f = new File("Delfin/Ressources/Competitive.csv");
@@ -123,7 +124,8 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
     public void viewTop5() throws FileNotFoundException {
         Scanner readCsv = new Scanner(f);
         readCsv.nextLine();
-        System.out.println(cR);
+
+        ArrayList<Double> timeArrayList = new ArrayList<>();
 
         while(readCsv.hasNext()){
             String currentLine = readCsv.nextLine();
@@ -136,12 +138,29 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
             int distance = Integer.parseInt(csvAsArray[3]);
             String discipline = csvAsArray[4];
 
+            //en collection sort der sortere efter bedste tid, men ikke printer ordentligt og ved ikke hvordan den skal implementeres
+            timeArrayList.add(time);
+            Collections.sort(timeArrayList);
 
-            if(discipline == "crawl" && gender == "male" && distance == 100){
+            //Skits af en idé
 
+            /*
+            for(int i = 0; i < timeArrayList.size(); i++){
+                int maxIndex = 0;
 
+                for(int j = 1; j < timeArrayList.size(); j++){
+                    if(timeArrayList.get(j) > timeArrayList.get(maxIndex)){
+                        maxIndex = j;
+                    }
+                }
+                System.out.println(maxIndex);
             }
 
+             */
+
+
+
+            //Interface til viewtop5metoden
 
             //top5Menu();
             /*
@@ -212,8 +231,6 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
             }
 */
         }
-
-
     }
 
     public static void main(String[] args) throws IOException {
@@ -225,6 +242,7 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
 
 
     }
+
     @Override
     public int compareTo(CompetitiveResult other) {
 

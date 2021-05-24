@@ -1,5 +1,11 @@
-Joachim;23232323;500.0;true
-Michael;23242321;1000.0;false
-Lars;22324232;500.0;true
-Kevin;22324232;1600.0;false
-Jonas;22324232;1200.0;true
+Name;PhoneNumber;SubscriptionFee;HasPaid
+Michael;292929292;1600.0;false
+Nicklas;292929292;1600.0;true
+Marianne;292929292;500.0;true
+Jonas;292929292;1000.0;false
+Michael;292929292;1600.0;false
+Nicklas;292929292;1600.0;true
+Marianne;292929292;500.0;true
+Jonas;292929292;1000.0;false
+Michael;292929292;1600.0;false
+Nicklas;292929292;1600.0;true

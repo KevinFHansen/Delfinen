@@ -274,6 +274,4 @@ public class MemberManagement {
         System.out.println("0. Exit");
     }
 
-
-
 }

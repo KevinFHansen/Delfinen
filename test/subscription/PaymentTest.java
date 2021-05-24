@@ -17,6 +17,5 @@ class PaymentTest {
 
         //Assert
         Assertions.assertEquals(4800.0, sum);
-
     }
 }

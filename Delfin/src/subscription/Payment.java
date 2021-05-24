@@ -52,10 +52,10 @@ public class Payment {
     public double viewExpectedSubIncome() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
-        ArrayList<Double> n = new ArrayList<>();
-
+        ArrayList<Double> arraySubIncome = new ArrayList<>();
+        Member member = new Member(null, 0, null, 0, null, null, true, true);
         double sum1 = 0;
-
+        double sum2 = 0;
         while(readCsv.hasNextLine()){
 
             String currentLine = readCsv.nextLine();
@@ -66,17 +66,20 @@ public class Payment {
             double subIncome = Double.parseDouble(csvAsArray[2]);
 
 
-            n.add(subIncome);
+            arraySubIncome.add(subIncome);
             sum = sum + subIncome;
 
             if(whoArrears == false){
-                sum1 = sum - subIncome;
+                for(int i = 0; i < arraySubIncome.size(); i++){
+                    sum1 = sum - arraySubIncome.get(i);
+                }
+                //sum1 = (sum - member.getsubscriptionFee());
             }
 
         }
         System.out.println("This is the expected sub Income: " + sum);
         System.out.println("This is the actual sub income: " + sum1);
-
+        setSum(sum);
         return sum;
     }
 }
