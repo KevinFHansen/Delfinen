@@ -20,12 +20,13 @@ public class UIMenu {
 
 
     public void startUI() throws IOException {
+
         ArrayList<Member> memberList = memberManagement.readMemberList();
 
 
         boolean exitProgram = false;
 
-        while (exitProgram){
+        while (!exitProgram){
 
             System.out.println("1. Member Management");
             System.out.println("2. Result Management");
@@ -50,7 +51,7 @@ public class UIMenu {
 
                 }
                 else if(choice == 2){
-                    memberManagement.updateMember();
+                    memberManagement.updateMember(memberList);
 
                 }
                 else if (choice == 3){
@@ -103,12 +104,40 @@ public class UIMenu {
                 break;
 
             case 3:
-                System.out.println("View subscriptions");
+
+                System.out.println("1. View Arrears");
+                System.out.println("2. View Expected sub income");
+                System.out.println("0. Exit");
+
+                int choice3 = scn.nextInt();
+                if (choice3 == 1){
+                    System.out.println("View subscriptions");
+                    payment.viewArrears();
+
+
+                }
+                else if (choice3 == 2){
+                    System.out.println("Expected subscription income: ");
+                    payment.viewExpectedSubIncome();
+
+
+                }
+                else if (choice3 == 0){
+
+                }
+                else {
+                    System.out.println("Wrong input");
+
+                }
+                break;
+
+
 
             case 0:
                 System.out.println("You choose to exit");
                 exitProgram = true;
         }
+
 
         }
 
