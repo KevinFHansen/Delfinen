@@ -133,12 +133,11 @@ public class UIMenu {
 
 
 
-
-
             case 0:
                 System.out.println("You choose to exit");
                 exitProgram = true;
         }
+
 
         }
 
