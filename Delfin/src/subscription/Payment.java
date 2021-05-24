@@ -11,7 +11,15 @@ public class Payment {
     private int period;
     private double totalPrice;
     private int memberPhoneNumber;
+    private double sum;
 
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
     Payment n = new Payment();
@@ -41,12 +49,11 @@ public class Payment {
     }
 
 
-    public void viewExpectedSubIncome() throws FileNotFoundException {
+    public double viewExpectedSubIncome() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
         ArrayList<Double> n = new ArrayList<>();
 
-        double sum = 0;
         double sum1 = 0;
 
         while(readCsv.hasNextLine()){
@@ -65,8 +72,11 @@ public class Payment {
             if(whoArrears == false){
                 sum1 = sum - subIncome;
             }
+
         }
         System.out.println("This is the expected sub Income: " + sum);
         System.out.println("This is the actual sub income: " + sum1);
+
+        return sum;
     }
 }
