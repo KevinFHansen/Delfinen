@@ -9,9 +9,6 @@ import java.util.Scanner;
 
 
 public class Payment {
-    private int period;
-    private double totalPrice;
-    private int memberPhoneNumber;
     private double sum;
 
     public double getSum() {
@@ -22,15 +19,7 @@ public class Payment {
         this.sum = sum;
     }
 
-
-
-    public static void main(String[] args) throws FileNotFoundException {
-    Payment n = new Payment();
-    n.viewExpectedSubIncome();
-    n.viewArrears();
-    }
-
-
+    //The viewArrears method can show the members who haven´t paid their subscription
     public void viewArrears() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
@@ -52,7 +41,7 @@ public class Payment {
         }
     }
 
-
+    //The viewExpectedSubIncome method calculate the expected subscription income and the actual subscription income
     public void viewExpectedSubIncome() throws FileNotFoundException {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
@@ -86,5 +75,5 @@ public class Payment {
         System.out.println("This is the actual sub income: " + sum2);
 
         setSum(sum);
-    }//1233124123
+    }
 }
