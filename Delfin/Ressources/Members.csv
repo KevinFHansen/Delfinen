@@ -1,5 +1,4 @@
 name;age;email;phoneNumber;subscriptionType;gender;isMemberActive;hasMemberPaid
 Kevin;239;kev;23456789;wkerk;kwer;true;true;
 rasmus;12;mail@;12345;ewrwr;werwer;true;true;
-magnus;190;wwer;123;erter;Ertert;true;true;
 mogens;190;wwer;1234;erter;Ertert;true;false;

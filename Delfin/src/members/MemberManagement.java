@@ -227,14 +227,8 @@ public class MemberManagement {
                 System.out.println("Can't delete member - Has arrears");
                 break;
             }
-
              else if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
                 memberList.remove(i);
-                break;
-            }
-
-             else {
-                System.out.println("can't find member");
                 break;
             }
 
