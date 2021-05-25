@@ -228,6 +228,7 @@ public class MemberManagement {
                 break;
             }
              else if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
+                System.out.println("You have delelted: " + i);
                 memberList.remove(i);
                 break;
             }
