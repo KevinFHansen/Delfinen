@@ -107,7 +107,6 @@ public class MemberManagement {
                                 choice = 0;
                                 break;
 
-
                             case 2:
                                 System.out.println("Update age");
                                 memberToUpdate.setAge(sc.nextInt());
