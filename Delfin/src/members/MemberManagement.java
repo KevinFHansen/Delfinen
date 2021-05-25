@@ -101,13 +101,16 @@ public class MemberManagement {
 
         System.out.println("Please type phone number of the member u want to update");
 
+
+        int phoneNumber = sc.nextInt();
+
         for (int i = 0; i < memberList.size(); i++){
           //  memberList.get(i).getPhoneNumber();
 
-            int phoneNumber = sc.nextInt();
+
             Member memberToUpdate = memberList.get(i);
 
-            System.out.println(memberToUpdate);
+           // System.out.println(memberToUpdate);
 
             if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
 
@@ -182,10 +185,6 @@ public class MemberManagement {
 
             }
 
-            else {
-                System.out.println("That phone number is not registered");
-            }
-            break;
         }
 
     }
