@@ -1,6 +1,7 @@
 package subscription;
 
 // @author Lars Brogaard Kaiser
+// Gruppe 6
 
 import members.Member;
 
@@ -40,9 +41,6 @@ public class Subscription {
     }
 
 
-
-
-
     public void createSubscriptionlist(ArrayList<Member> memberSubscriptionList) throws FileNotFoundException{
 
         File fout = new File("Delfin/Ressources/SubscriptionList.csv");
@@ -56,7 +54,6 @@ public class Subscription {
             writer.print(memberSubscriptionList.get(i).getSubscriptionFee() + ";");
             writer.println(memberSubscriptionList.get(i).getHasPaid());
         }
-
         writer.close();
 
     }
