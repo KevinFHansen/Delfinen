@@ -98,13 +98,16 @@ public class MemberManagement {
 
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Please type phone number of the member u want to update");
 
+
+        int phoneNumber = sc.nextInt();
 
         for (int i = 0; i < memberList.size(); i++){
           //  memberList.get(i).getPhoneNumber();
 
-            int phoneNumber = sc.nextInt();
+
             Member memberToUpdate = memberList.get(i);
 
            // System.out.println(memberToUpdate);
@@ -117,64 +120,73 @@ public class MemberManagement {
                 while (choice != 0) {
 
                     choice = sc.nextInt();
+                    sc.nextLine();
 
                     switch (choice) {
 
                         case 1:
                             System.out.println("Update name");
                             memberToUpdate.setName(sc.next());
+                            choice = 0;
                             break;
+
 
                         case 2:
                             System.out.println("Update age");
                             memberToUpdate.setAge(sc.nextInt());
+                            choice = 0;
                             break;
 
                         case 3:
                             System.out.println("Update email");
                             memberToUpdate.setEmail(sc.next());
+                            choice = 0;
                             break;
 
                         case 4:
                             System.out.println("Update phone number");
                             memberToUpdate.setPhoneNumber(sc.nextInt());
+                            choice = 0;
                             break;
 
                         case 5:
                             System.out.println("Update type of subscription");
                             memberToUpdate.setTypeOfSubscription(sc.next());
+                            choice = 0;
                             break;
 
                         case 6:
                             System.out.println("Update gender");
                             memberToUpdate.setGender(sc.next());
+                            choice = 0;
                             break;
 
                         case 7:
                             System.out.println("Update if member is active or not");
                             memberToUpdate.setMemberActive(sc.nextBoolean());
+                            choice = 0;
                             break;
 
                         case 8:
                             System.out.println("Update payment status");
                             memberToUpdate.setHasPaid(sc.nextBoolean());
+                            choice = 0;
                             break;
 
                         case 0:
                             break;
 
-
                     }
-                    createMemberList(memberList);
-                    choice = 0;
+
+
                 }
 
+                createMemberList(memberList);
+
             }
 
-            else {
-                System.out.println("That phone number is not registered");
-            }
         }
+
     }
 
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
@@ -210,8 +222,17 @@ public class MemberManagement {
            // if (phoneNumber == memberToRemove.getPhoneNumber()) ;
 
             //HVORFOR KAN JEG IKKE BRUGE .EQUALS
-            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber))
+
+            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber) && memberList.get(i).getHasPaid() == false) {
+                System.out.println("Can't delete member - Has arrears");
+                break;
+            }
+             else if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
+                System.out.println("You have delelted: " + i);
                 memberList.remove(i);
+                break;
+            }
+
 
            // memberList.remove(memberToRemove);
             // memberList.remove(memberList.get(i));
