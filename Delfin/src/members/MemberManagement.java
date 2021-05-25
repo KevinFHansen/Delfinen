@@ -1,11 +1,14 @@
 package members;
 
+// @author Kevin Funch Hansen
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 public class MemberManagement {
@@ -49,51 +52,27 @@ public class MemberManagement {
     }
 
 
-    //Den her metode fungere ikke helt optimalt, ville være smartere hvis man kunne nøjes med at ændre atributter
-
-    /*public static void updateMember1(int phoneNumber) throws FileNotFoundException {
-        System.out.println("Please type the phone number of the member you want to update");
-        phoneNumber = userInput.nextInt();
-        userInput.nextLine();
-
-
-        System.out.println("Please type name: ");
-        String updateMemberName = userInput.next();
-
-        System.out.println("Please type age: ");
-        int updateMemberAge = userInput.nextInt();
-
-        System.out.println("Please type Email: ");
-        String updateNewMemberEmail = userInput.next();
-
-        System.out.println("Please type phone number: ");
-        int updatePhoneNumber = userInput.nextInt();
-
-        //
-        System.out.println("Please type type of subscription");
-        String updateMemberSubType = userInput.next();
-
-        System.out.println("Please type gender: ");
-        String updateMemberGender =  userInput.next();
-
-        System.out.println("Please type if member is active (true/false)");
-        boolean updateIsMemberActive = userInput.nextBoolean();
-
-        System.out.println("Please type if the member has paid (true/false)");
-        boolean updateHasMemberPaid = userInput.nextBoolean();
-
-        Member updateMember = new Member(updateMemberName, updateMemberAge, updateNewMemberEmail, updatePhoneNumber, updateMemberSubType, updateMemberGender, updateIsMemberActive, updateHasMemberPaid);
-        memberList.add(updateMember);
-        createMemberList(memberList);
-
-
-    }*/
-
-    public static void viewMember(ArrayList<Member> memberList){
-        System.out.println("Memberlist");
+    public static void viewMember(ArrayList<Member> memberList) throws FileNotFoundException {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Memberlist:");
         for (int i = 0; i < memberList.size(); i++){
             System.out.println(memberList.get(i));
         }
+
+        System.out.println("Do you want to update a member?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        int choice = scn.nextInt();
+            if (choice == 1) {
+                updateMember(memberList);
+            }
+
+            else {
+
+            }
+
+
+
     }
 
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
@@ -101,93 +80,97 @@ public class MemberManagement {
 
         System.out.println("Please type phone number of the member u want to update");
 
+        try {
 
         int phoneNumber = sc.nextInt();
 
-        for (int i = 0; i < memberList.size(); i++){
-          //  memberList.get(i).getPhoneNumber();
 
+            for (int i = 0; i < memberList.size(); i++) {
 
-            Member memberToUpdate = memberList.get(i);
+                Member memberToUpdate = memberList.get(i);
 
-           // System.out.println(memberToUpdate);
+                if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
 
-            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
+                    updateMemberMenu();
 
-                updateMemberMenu();
+                    int choice = 10;
+                    while (choice != 0) {
 
-                int choice = 10;
-                while (choice != 0) {
+                        choice = sc.nextInt();
+                        sc.nextLine();
 
-                    choice = sc.nextInt();
-                    sc.nextLine();
+                        switch (choice) {
 
-                    switch (choice) {
+                            case 1:
+                                System.out.println("Update name");
+                                memberToUpdate.setName(sc.next());
+                                choice = 0;
+                                break;
 
-                        case 1:
-                            System.out.println("Update name");
-                            memberToUpdate.setName(sc.next());
-                            choice = 0;
-                            break;
+                            case 2:
+                                System.out.println("Update age");
+                                memberToUpdate.setAge(sc.nextInt());
+                                choice = 0;
+                                break;
 
+                            case 3:
+                                System.out.println("Update email");
+                                memberToUpdate.setEmail(sc.next());
+                                choice = 0;
+                                break;
 
-                        case 2:
-                            System.out.println("Update age");
-                            memberToUpdate.setAge(sc.nextInt());
-                            choice = 0;
-                            break;
+                            case 4:
+                                System.out.println("Update phone number");
+                                memberToUpdate.setPhoneNumber(sc.nextInt());
+                                choice = 0;
+                                break;
 
-                        case 3:
-                            System.out.println("Update email");
-                            memberToUpdate.setEmail(sc.next());
-                            choice = 0;
-                            break;
+                            case 5:
+                                System.out.println("Update type of subscription");
+                                memberToUpdate.setTypeOfSubscription(sc.next());
+                                choice = 0;
+                                break;
 
-                        case 4:
-                            System.out.println("Update phone number");
-                            memberToUpdate.setPhoneNumber(sc.nextInt());
-                            choice = 0;
-                            break;
+                            case 6:
+                                System.out.println("Update gender");
+                                memberToUpdate.setGender(sc.next());
+                                choice = 0;
+                                break;
 
-                        case 5:
-                            System.out.println("Update type of subscription");
-                            memberToUpdate.setTypeOfSubscription(sc.next());
-                            choice = 0;
-                            break;
+                            case 7:
+                                System.out.println("Update if member is active or not");
+                                memberToUpdate.setMemberActive(sc.nextBoolean());
+                                choice = 0;
+                                break;
 
-                        case 6:
-                            System.out.println("Update gender");
-                            memberToUpdate.setGender(sc.next());
-                            choice = 0;
-                            break;
+                            case 8:
+                                System.out.println("Update payment status");
+                                memberToUpdate.setHasPaid(sc.nextBoolean());
+                                choice = 0;
+                                break;
 
-                        case 7:
-                            System.out.println("Update if member is active or not");
-                            memberToUpdate.setMemberActive(sc.nextBoolean());
-                            choice = 0;
-                            break;
+                            case 0:
+                                break;
 
-                        case 8:
-                            System.out.println("Update payment status");
-                            memberToUpdate.setHasPaid(sc.nextBoolean());
-                            choice = 0;
-                            break;
+                        }
 
-                        case 0:
-                            break;
 
                     }
 
+                    createMemberList(memberList);
 
                 }
-
-                createMemberList(memberList);
 
             }
 
         }
 
+        catch (InputMismatchException e) {
+            System.out.println("Wrong input - try again");
+        }
     }
+
+    //Reads the csv file members - Defines how to read it. Creates the files as an array
 
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
@@ -211,37 +194,32 @@ public class MemberManagement {
             Member tmpMember = new Member(name, age, email, phoneNumber, subType, gender, isMemberActive, hasMemberPaid);
             memberList.add(tmpMember);
         }
+
         return memberList;
     }
 
+    //Method to members - Can't delete if member has arrears
     public static void removeMember(ArrayList<Member> memberList) throws IOException {
+
         System.out.println("Please type phone number of the member you want to remove");
+
         int phoneNumber = userInput.nextInt();
         for (int i = 0; i < memberList.size(); i++) {
-          //  Member memberToRemove = memberList.get(i);
-           // if (phoneNumber == memberToRemove.getPhoneNumber()) ;
-
-            //HVORFOR KAN JEG IKKE BRUGE .EQUALS
 
             if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber) && memberList.get(i).getHasPaid() == false) {
                 System.out.println("Can't delete member - Has arrears");
                 break;
             }
              else if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
+                System.out.println("You have delelted: " + i);
                 memberList.remove(i);
                 break;
             }
 
-
-           // memberList.remove(memberToRemove);
-            // memberList.remove(memberList.get(i));
-            //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
-            // memberList.remove(memberToRemove);
         }
 
         createMemberList(memberList);
     }
-
 
     public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
         File fout = new File("Delfin/Ressources/Members.csv");
@@ -257,30 +235,9 @@ public class MemberManagement {
             writer.print(memberList.get(i).getTypeOfSubscription() + ";");
             writer.print(memberList.get(i).getGender() + ";");
             writer.print(memberList.get(i).getIsMemberActive() + ";");
-          //  writer.print(i + 1 + ";");
             writer.println(memberList.get(i).getHasPaid() + ";");
         }
         writer.close();
-    }
-
-    public ArrayList<Member> getMemberList() {
-        return memberList;
-    }
-
-    public void setMemberlist(ArrayList<Member> memberList) {
-        this.memberList = memberList;
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        Member member = new Member(null, 0, null,0,null, null, true, true);
-        MemberManagement memberManagement = new MemberManagement();
-        ArrayList<Member> memberList = memberManagement.readMemberList();
-        //findMember(memberList);
-        /*updateMember();
-        registerMember(memberList);
-        removeMember(memberList);*/
-
     }
 
     public static void updateMemberMenu(){
