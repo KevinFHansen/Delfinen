@@ -1,11 +1,7 @@
 Name;PhoneNumber;SubscriptionFee;HasPaid
-Michael;292929292;1600.0;false
-Nicklas;292929292;1600.0;true
-Marianne;292929292;500.0;true
-Jonas;292929292;1000.0;false
-Michael;292929292;1600.0;false
-Nicklas;292929292;1600.0;true
-Marianne;292929292;500.0;true
-Jonas;292929292;1000.0;false
-Michael;292929292;1600.0;false
-Nicklas;292929292;1600.0;true
+Kevin;23456789;1200.0;true
+rasmus;12345;1000.0;true
+Jonas;1234;1600.0;false
+Issa;3030;1000.0;true
+Tobias;303030;1600.0;true
+Poul;2020202;1600.0;true
