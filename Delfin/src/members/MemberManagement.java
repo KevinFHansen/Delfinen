@@ -48,7 +48,6 @@ public class MemberManagement {
         Member newMember = new Member(newMemberName, newMemberAge, newMemberEmail, newMemberPhoneNumber, newMemberSubType, newMemberGender, isNewMemberActive, hasNewMemberPaid);
         memberList.add(newMember);
         createMemberList(memberList);
-
     }
 
 

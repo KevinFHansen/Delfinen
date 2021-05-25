@@ -11,6 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SubscriptionTest {
 
+    /*For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
+        for seniorsvømmere (18 år og over) 1600 kr. årligt.
+        For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
+        For passivt medlemskab er taksten 500 kr. årligt.*/
+
     @Test
     void generateFee() {
 

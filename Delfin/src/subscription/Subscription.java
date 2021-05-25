@@ -1,17 +1,12 @@
 package subscription;
 
 // @author Lars Brogaard Kaiser
-// Gruppe 6
 
 import members.Member;
 
 import java.io.*;
 import java.util.ArrayList;
 
-/*For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
-        for seniorsvømmere (18 år og over) 1600 kr. årligt.
-        For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-        For passivt medlemskab er taksten 500 kr. årligt.*/
 
 public class Subscription {
 
@@ -34,13 +29,14 @@ public class Subscription {
         }
     }
 
+    // Adding instance of Member class to the attribute memberSubscriptionList
     public void addMembersToSub(ArrayList<Member> members){
         for (int i = 0; i < members.size(); i ++){
             memberSubscriptionList.add(members.get(i));
         }
     }
 
-
+    // writing list of subscriptions to csv-file
     public void createSubscriptionlist(ArrayList<Member> memberSubscriptionList) throws FileNotFoundException{
 
         File fout = new File("Delfin/Ressources/SubscriptionList.csv");
@@ -55,21 +51,6 @@ public class Subscription {
             writer.println(memberSubscriptionList.get(i).getHasPaid());
         }
         writer.close();
-
     }
 
-    public void writeSubscriptionToFile(ArrayList<Member> members) throws IOException{
-
-        File fout = new File("Delfin/Ressources/SubscriptionList.csv");
-        FileWriter writer = new FileWriter(fout,true);
-
-
-        for (int i = 0; i < memberSubscriptionList.size(); i++){
-            writer.append(memberSubscriptionList.get(i).getName() + ";");
-            writer.append(memberSubscriptionList.get(i).getPhoneNumber() + ";");
-            writer.append(memberSubscriptionList.get(i).getsubscriptionFee() + ";");
-            writer.append(memberSubscriptionList.get(i).getHasPaid() + ("\n"));
-        }
-        writer.close();
-    }
 }
