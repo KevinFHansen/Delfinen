@@ -49,46 +49,6 @@ public class MemberManagement {
     }
 
 
-    //Den her metode fungere ikke helt optimalt, ville være smartere hvis man kunne nøjes med at ændre atributter
-
-    /*public static void updateMember1(int phoneNumber) throws FileNotFoundException {
-        System.out.println("Please type the phone number of the member you want to update");
-        phoneNumber = userInput.nextInt();
-        userInput.nextLine();
-
-
-        System.out.println("Please type name: ");
-        String updateMemberName = userInput.next();
-
-        System.out.println("Please type age: ");
-        int updateMemberAge = userInput.nextInt();
-
-        System.out.println("Please type Email: ");
-        String updateNewMemberEmail = userInput.next();
-
-        System.out.println("Please type phone number: ");
-        int updatePhoneNumber = userInput.nextInt();
-
-        //
-        System.out.println("Please type type of subscription");
-        String updateMemberSubType = userInput.next();
-
-        System.out.println("Please type gender: ");
-        String updateMemberGender =  userInput.next();
-
-        System.out.println("Please type if member is active (true/false)");
-        boolean updateIsMemberActive = userInput.nextBoolean();
-
-        System.out.println("Please type if the member has paid (true/false)");
-        boolean updateHasMemberPaid = userInput.nextBoolean();
-
-        Member updateMember = new Member(updateMemberName, updateMemberAge, updateNewMemberEmail, updatePhoneNumber, updateMemberSubType, updateMemberGender, updateIsMemberActive, updateHasMemberPaid);
-        memberList.add(updateMember);
-        createMemberList(memberList);
-
-
-    }*/
-
     public static void viewMember(ArrayList<Member> memberList){
         System.out.println("Memberlist");
         for (int i = 0; i < memberList.size(); i++){
@@ -105,12 +65,8 @@ public class MemberManagement {
         int phoneNumber = sc.nextInt();
 
         for (int i = 0; i < memberList.size(); i++){
-          //  memberList.get(i).getPhoneNumber();
-
 
             Member memberToUpdate = memberList.get(i);
-
-           // System.out.println(memberToUpdate);
 
             if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
 
@@ -211,17 +167,16 @@ public class MemberManagement {
             Member tmpMember = new Member(name, age, email, phoneNumber, subType, gender, isMemberActive, hasMemberPaid);
             memberList.add(tmpMember);
         }
+
         return memberList;
     }
 
     public static void removeMember(ArrayList<Member> memberList) throws IOException {
+
         System.out.println("Please type phone number of the member you want to remove");
+
         int phoneNumber = userInput.nextInt();
         for (int i = 0; i < memberList.size(); i++) {
-          //  Member memberToRemove = memberList.get(i);
-           // if (phoneNumber == memberToRemove.getPhoneNumber()) ;
-
-            //HVORFOR KAN JEG IKKE BRUGE .EQUALS
 
             if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber) && memberList.get(i).getHasPaid() == false) {
                 System.out.println("Can't delete member - Has arrears");
@@ -233,16 +188,10 @@ public class MemberManagement {
                 break;
             }
 
-
-           // memberList.remove(memberToRemove);
-            // memberList.remove(memberList.get(i));
-            //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
-            // memberList.remove(memberToRemove);
         }
 
         createMemberList(memberList);
     }
-
 
     public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
         File fout = new File("Delfin/Ressources/Members.csv");
@@ -258,30 +207,9 @@ public class MemberManagement {
             writer.print(memberList.get(i).getTypeOfSubscription() + ";");
             writer.print(memberList.get(i).getGender() + ";");
             writer.print(memberList.get(i).getIsMemberActive() + ";");
-          //  writer.print(i + 1 + ";");
             writer.println(memberList.get(i).getHasPaid() + ";");
         }
         writer.close();
-    }
-
-    public ArrayList<Member> getMemberList() {
-        return memberList;
-    }
-
-    public void setMemberlist(ArrayList<Member> memberList) {
-        this.memberList = memberList;
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        Member member = new Member(null, 0, null,0,null, null, true, true);
-        MemberManagement memberManagement = new MemberManagement();
-        ArrayList<Member> memberList = memberManagement.readMemberList();
-        //findMember(memberList);
-        /*updateMember();
-        registerMember(memberList);
-        removeMember(memberList);*/
-
     }
 
     public static void updateMemberMenu(){
