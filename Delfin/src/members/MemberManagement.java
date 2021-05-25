@@ -170,6 +170,8 @@ public class MemberManagement {
         }
     }
 
+    //Reads the csv file members - Defines how to read it. Creates the files as an array
+
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
         Scanner readFileScanner = new Scanner(membersList);
@@ -196,6 +198,7 @@ public class MemberManagement {
         return memberList;
     }
 
+    //Method to members - Can't delete if member has arrears
     public static void removeMember(ArrayList<Member> memberList) throws IOException {
 
         System.out.println("Please type phone number of the member you want to remove");
