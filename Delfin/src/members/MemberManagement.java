@@ -96,17 +96,17 @@ public class MemberManagement {
         }
     }
 
-
-
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please type phone number of the member u want to update");
+
+
 
         for (int i = 0; i < memberList.size(); i++){
           //  memberList.get(i).getPhoneNumber();
 
             int phoneNumber = sc.nextInt();
-            Member memberToUpdate = memberList.get(phoneNumber);
+            Member memberToUpdate = memberList.get(i);
 
            // System.out.println(memberToUpdate);
 
@@ -164,11 +164,14 @@ public class MemberManagement {
                         case 0:
                             break;
 
+
                     }
                     createMemberList(memberList);
                     choice = 0;
                 }
+
             }
+
             else {
                 System.out.println("That phone number is not registered");
             }

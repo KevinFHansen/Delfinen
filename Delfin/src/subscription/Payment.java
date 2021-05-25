@@ -32,6 +32,7 @@ public class Payment {
         File f = new File("Delfin/Ressources/SubscriptionList.csv");
         Scanner readCsv = new Scanner(f);
         System.out.println("Members who arrears: ");
+        readCsv.nextLine();
         while(readCsv.hasNextLine()){
 
             String currentLine = readCsv.nextLine();
@@ -56,6 +57,8 @@ public class Payment {
         Member member = new Member(null, 0, null, 0, null, null, true, true);
         double sum1 = 0;
         double sum2 = 0;
+
+        readCsv.nextLine();
         while(readCsv.hasNextLine()){
 
             String currentLine = readCsv.nextLine();
