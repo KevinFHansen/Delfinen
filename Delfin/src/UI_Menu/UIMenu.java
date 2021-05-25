@@ -48,9 +48,9 @@ public class UIMenu {
                 int choice = scn.nextInt();
                 if (choice == 1){
                     memberManagement.registerMember(memberList);
-                    Subscription.generateFee(memberList.get(0));
-                    subscription.writeSubscriptionToFile();
-                    // generate fee and register to subscription
+                    subscription.generateFee(memberList);
+                    subscription.createSubscriptionlist(memberList);
+                    subscription.addMembersToSub(memberList);
 
 
                 }
