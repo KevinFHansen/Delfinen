@@ -1,5 +1,7 @@
 package members;
 
+// @author Kevin Funch Hansen
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

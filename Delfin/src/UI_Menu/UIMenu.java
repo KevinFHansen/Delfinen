@@ -1,10 +1,11 @@
 package UI_Menu;
 
+// @author Kevin Funch Hansen
+
 import members.Member;
 import members.MemberManagement;
 import subscription.Payment;
 import subscription.Subscription;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,7 +52,6 @@ public class UIMenu {
                     subscription.generateFee(memberList);
                     subscription.createSubscriptionlist(memberList);
                     subscription.addMembersToSub(memberList);
-
 
                 }
                 else if(choice == 2){
