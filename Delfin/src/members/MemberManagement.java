@@ -101,7 +101,6 @@ public class MemberManagement {
         System.out.println("Please type phone number of the member u want to update");
 
 
-
         for (int i = 0; i < memberList.size(); i++){
           //  memberList.get(i).getPhoneNumber();
 

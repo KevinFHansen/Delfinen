@@ -16,6 +16,6 @@ class PaymentTest {
         double sum = pay.getSum();
 
         //Assert
-        Assertions.assertEquals(4800.0, sum);
+        Assertions.assertEquals(12600.0, sum);
     }
 }
