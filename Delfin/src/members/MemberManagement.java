@@ -107,7 +107,7 @@ public class MemberManagement {
             int phoneNumber = sc.nextInt();
             Member memberToUpdate = memberList.get(i);
 
-           // System.out.println(memberToUpdate);
+            System.out.println(memberToUpdate);
 
             if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
 
@@ -173,14 +173,12 @@ public class MemberManagement {
                         case 0:
                             break;
 
-
                     }
 
 
                 }
 
                 createMemberList(memberList);
-
 
             }
 
@@ -225,8 +223,22 @@ public class MemberManagement {
            // if (phoneNumber == memberToRemove.getPhoneNumber()) ;
 
             //HVORFOR KAN JEG IKKE BRUGE .EQUALS
-            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber))
+
+            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber) && memberList.get(i).getHasPaid() == false) {
+                System.out.println("Can't delete member - Has arrears");
+                break;
+            }
+
+             else if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
                 memberList.remove(i);
+                break;
+            }
+
+             else {
+                System.out.println("can't find member");
+                break;
+            }
+
 
            // memberList.remove(memberToRemove);
             // memberList.remove(memberList.get(i));
