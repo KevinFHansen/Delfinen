@@ -1,10 +1,10 @@
 package subscription;
 
+// @author Lars Brogaard Kaiser
+
 import members.Member;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 /*For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt,
@@ -16,32 +16,7 @@ public class Subscription {
 
     private ArrayList<Member> memberSubscriptionList = new ArrayList<>();
 
-
-
-    public static void main(String[] args) throws IOException {
-        Member et = new Member("Joachim",18,"djdjdjd",23232323,"Competitor","Male",false, true);
-        Member to = new Member("Kevin",17,"djdjdjd",23232323,"Competitor","Male",true, false);
-        Member tre = new Member("Michael",65,"djdjdjd",23232323,"Competitor","Male",true, true);
-        Member fire = new Member("Jonas",20,"djdjdjd",23232323,"Competitor","Male",true, false);
-
-        generateFee(et);
-        generateFee(to);
-        generateFee(tre);
-        generateFee(fire);
-
-        System.out.println(et.getsubscriptionFee());
-        System.out.println(to.getsubscriptionFee());
-        System.out.println(tre.getsubscriptionFee());
-        System.out.println(fire.getsubscriptionFee());
-
-        Subscription sub = new Subscription();
-
-        sub.memberSubscriptionList.add(et);
-        sub.writeSubscriptionToFile();
-
-    }
-
-    // sets the attribute SubscriptionFee
+    // sets the attribute SubscriptionFee in Member class
 
     public static void generateFee(Member member){
 
@@ -60,11 +35,30 @@ public class Subscription {
 
     }
 
+
+    public static void createSubscriptionlist(ArrayList<Member> memberSubscriptionList) throws FileNotFoundException{
+
+        File fout = new File("Delfin/Ressources/SubscriptionList.csv");
+        PrintWriter writer = new PrintWriter(fout);
+        writer.print("");
+        writer.println("Name;PhoneNumber;SubscriptionFee;HasPaid");
+
+        for(int i = 0; i < memberSubscriptionList.size(); i++){
+            writer.print(memberSubscriptionList.get(i).getName() + ";");
+            writer.print(memberSubscriptionList.get(i).getPhoneNumber() + ";");
+            writer.print(memberSubscriptionList.get(i).getSubscriptionFee() + ";");
+            writer.println(memberSubscriptionList.get(i).getHasPaid());
+        }
+
+        writer.close();
+
+    }
+
     public void writeSubscriptionToFile() throws IOException{
 
         File fout = new File("Delfin/Ressources/SubscriptionList.csv");
-
         FileWriter writer = new FileWriter(fout,true);
+
 
         for (int i = 0; i < memberSubscriptionList.size(); i++){
             writer.append(memberSubscriptionList.get(i).getName() + ";");

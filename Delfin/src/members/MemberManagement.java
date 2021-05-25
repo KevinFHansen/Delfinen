@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
-
 public class MemberManagement {
 
     Member member = new Member(null, 0, null,0,null, null, true, true);
@@ -96,81 +96,87 @@ public class MemberManagement {
         }
     }
 
-
-
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please type phone number of the member u want to update");
 
-        //for (int i = 0; i < memberList.size(); i++){
+
+
+        for (int i = 0; i < memberList.size(); i++){
           //  memberList.get(i).getPhoneNumber();
 
             int phoneNumber = sc.nextInt();
-            Member memberToUpdate = memberList.get(phoneNumber);
+            Member memberToUpdate = memberList.get(i);
 
-            System.out.println(memberToUpdate);
+           // System.out.println(memberToUpdate);
 
-            if (phoneNumber == memberToUpdate.getPhoneNumber());
+            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber)) {
 
-            updateMemberMenu();
+                updateMemberMenu();
 
-            int choice = 10;
-            while (choice != 0) {
+                int choice = 10;
+                while (choice != 0) {
 
-                choice = sc.nextInt();
+                    choice = sc.nextInt();
 
-                switch (choice) {
+                    switch (choice) {
 
-                    case 1:
-                        System.out.println("Update name");
-                        memberToUpdate.setName(sc.next());
-                        break;
+                        case 1:
+                            System.out.println("Update name");
+                            memberToUpdate.setName(sc.next());
+                            break;
 
-                    case 2:
-                        System.out.println("Update age");
-                        memberToUpdate.setAge(sc.nextInt());
-                        break;
+                        case 2:
+                            System.out.println("Update age");
+                            memberToUpdate.setAge(sc.nextInt());
+                            break;
 
-                    case 3:
-                        System.out.println("Update email");
-                        memberToUpdate.setEmail(sc.next());
-                        break;
+                        case 3:
+                            System.out.println("Update email");
+                            memberToUpdate.setEmail(sc.next());
+                            break;
 
-                    case 4:
-                        System.out.println("Update phone number");
-                        memberToUpdate.setPhoneNumber(sc.nextInt());
-                        break;
+                        case 4:
+                            System.out.println("Update phone number");
+                            memberToUpdate.setPhoneNumber(sc.nextInt());
+                            break;
 
-                    case 5:
-                        System.out.println("Update type of subscription");
-                        memberToUpdate.setTypeOfSubscription(sc.next());
-                        break;
+                        case 5:
+                            System.out.println("Update type of subscription");
+                            memberToUpdate.setTypeOfSubscription(sc.next());
+                            break;
 
-                    case 6:
-                        System.out.println("Update gender");
-                        memberToUpdate.setGender(sc.next());
-                        break;
+                        case 6:
+                            System.out.println("Update gender");
+                            memberToUpdate.setGender(sc.next());
+                            break;
 
-                    case 7:
-                        System.out.println("Update if member is active or not");
-                        memberToUpdate.setMemberActive(sc.nextBoolean());
-                        break;
+                        case 7:
+                            System.out.println("Update if member is active or not");
+                            memberToUpdate.setMemberActive(sc.nextBoolean());
+                            break;
 
-                    case 8:
-                        System.out.println("Update payment status");
-                        memberToUpdate.setHasPaid(sc.nextBoolean());
-                        break;
+                        case 8:
+                            System.out.println("Update payment status");
+                            memberToUpdate.setHasPaid(sc.nextBoolean());
+                            break;
 
-                    case 0:
-                        break;
+                        case 0:
+                            break;
 
+
+                    }
+                    createMemberList(memberList);
+                    choice = 0;
                 }
-                createMemberList(memberList);
-                choice = 0;
+
             }
 
+            else {
+                System.out.println("That phone number is not registered");
+            }
         }
-    //}
+    }
 
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
@@ -199,20 +205,24 @@ public class MemberManagement {
 
     public static void removeMember(ArrayList<Member> memberList) throws IOException {
         System.out.println("Please type phone number of the member you want to remove");
-
         int phoneNumber = userInput.nextInt();
-        for (int i = 0; i <= memberList.size(); i++) {
-            Member memberToRemove = memberList.get(i);
-            if(phoneNumber == memberToRemove.getPhoneNumber());
-            memberList.remove(memberToRemove);
-           // memberList.remove(memberList.get(i));
+        for (int i = 0; i < memberList.size(); i++) {
+          //  Member memberToRemove = memberList.get(i);
+           // if (phoneNumber == memberToRemove.getPhoneNumber()) ;
 
-            //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
+            //HVORFOR KAN JEG IKKE BRUGE .EQUALS
+            if (Objects.equals(memberList.get(i).getPhoneNumber(), phoneNumber))
+                memberList.remove(i);
+
            // memberList.remove(memberToRemove);
-
+            // memberList.remove(memberList.get(i));
+            //If statement for om member har betalt - Hvis ikke kan member ikke slettes.
+            // memberList.remove(memberToRemove);
         }
+
         createMemberList(memberList);
     }
+
 
     public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
         File fout = new File("Delfin/Ressources/Members.csv");
