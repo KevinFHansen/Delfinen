@@ -50,11 +50,27 @@ public class MemberManagement {
     }
 
 
-    public static void viewMember(ArrayList<Member> memberList){
-        System.out.println("Memberlist");
+    public static void viewMember(ArrayList<Member> memberList) throws FileNotFoundException {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Memberlist:");
         for (int i = 0; i < memberList.size(); i++){
             System.out.println(memberList.get(i));
         }
+
+        System.out.println("Do you want to update a member?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        int choice = scn.nextInt();
+            if (choice == 1) {
+                updateMember(memberList);
+            }
+
+            else {
+
+            }
+
+
+
     }
 
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
