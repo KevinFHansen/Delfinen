@@ -141,8 +141,9 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
             //en collection sort der sortere efter bedste tid, men ikke printer ordentligt og ved ikke hvordan den skal implementeres
             timeArrayList.add(time);
             Collections.sort(timeArrayList);
-
+            System.out.println(timeArrayList);
             //Skits af en idé
+
 
             /*
             for(int i = 0; i < timeArrayList.size(); i++){
@@ -239,7 +240,6 @@ public class CompetitiveResult extends Result implements Comparable<CompetitiveR
         //n.registerResult(n.cR);
         instansCompetitive.readResults();
         instansCompetitive.viewTop5();
-
 
     }
 
