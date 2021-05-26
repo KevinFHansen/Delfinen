@@ -7,6 +7,7 @@ public class Discipline {
     private String type;
     private int distance;
     double bestTraining;
+    double rank;
     ArrayList<Result2> results = new ArrayList<>();
 
     public Discipline(String type, int distance, double bestTraining) {
@@ -55,6 +56,33 @@ public class Discipline {
 
         System.out.println("Type in the distance:");
         setDistance(sc.nextInt());
+    }
+
+    public double getRank(){
+        return rank;
+    }
+
+    public void setRank(){
+
+        double calcRank;
+        double training = distance / bestTraining;
+        double compTotal = 0.0;
+        int count = 0;
+
+        for(int i = 0; i < results.size(); i++){
+
+            double time = results.get(i).getCompTime() * 0.75;
+
+            double placment = results.get(i).getPlacement() * 0.25;
+
+            compTotal = compTotal + time + placment;
+
+            count++;
+        }
+
+        calcRank = training + (compTotal / count);
+
+        this.rank = calcRank;
     }
 }
 

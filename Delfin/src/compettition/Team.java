@@ -23,7 +23,7 @@ public class Team {
 
             Competitor tempComp = new Competitor(null, 0, null, null);
 
-            tempComp = tempComp.readCompFile("male", "Junior", jMDir[i].getName());
+            tempComp = tempComp.readCompFile("Male", "Junior", jMDir[i].getName());
 
             juniorMale.add(tempComp);
         }
@@ -32,7 +32,7 @@ public class Team {
 
             Competitor tempComp = new Competitor(null, 0, null, null);
 
-            tempComp = tempComp.readCompFile("male", "Junior", jFDir[i].getName());
+            tempComp = tempComp.readCompFile("Female", "Junior", jFDir[i].getName());
 
             juniorFemale.add(tempComp);
         }
@@ -41,7 +41,7 @@ public class Team {
 
             Competitor tempComp = new Competitor(null, 0, null, null);
 
-            tempComp = tempComp.readCompFile("male", "Junior", sMDir[i].getName());
+            tempComp = tempComp.readCompFile("Male", "Senior", sMDir[i].getName());
 
             seniorMale.add(tempComp);
         }
@@ -50,16 +50,10 @@ public class Team {
 
             Competitor tempComp = new Competitor(null, 0, null, null);
 
-            tempComp = tempComp.readCompFile("male", "Junior", sFDir[i].getName());
+            tempComp = tempComp.readCompFile("Female", "Senior", sFDir[i].getName());
 
             seniorFemale.add(tempComp);
         }
-
-
-
     }
-
-
-
 
 }

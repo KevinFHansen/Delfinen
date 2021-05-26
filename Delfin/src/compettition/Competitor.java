@@ -160,7 +160,7 @@ public class Competitor extends Member{
                 count2++;
             }
 
-            else{
+            else{ // breaststroke //
                 disciplines.get(3).setType(competitorArrays.get(i)[2].trim());
                 disciplines.get(3).setDistance(Integer.parseInt(competitorArrays.get(i)[3].trim()));
                 disciplines.get(3).setBestTraining(Double.parseDouble(competitorArrays.get(i)[4].trim()));
@@ -176,6 +176,12 @@ public class Competitor extends Member{
                 count3++;
             }
         }
+
+
+        disciplines.get(0).setRank();
+        disciplines.get(1).setRank();
+        disciplines.get(2).setRank();
+        disciplines.get(3).setRank();
 
         return competitor;
     }
