@@ -118,7 +118,7 @@ public class Competitor extends Member{
 
                 Result2 tempResult = new Result2(null, 0, 0.0);
 
-                disciplines.get(0).getResults().add(tempResult);
+                disciplines.get(0).results.add(tempResult);
 
                 disciplines.get(0).getResults().get(count0).setCompName(competitorArrays.get(i)[5].trim());
                 disciplines.get(0).getResults().get(count0).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));

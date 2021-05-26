@@ -39,17 +39,19 @@ public class Result2 {
     }
 
 
-    public void registerResult() {
+    public Result2 registerResult() {
         Scanner sc = new Scanner(System.in);
+        Result2 tempResult = new Result2(null, 0, 0.0);
 
         System.out.println("Type in competition name: ");
-        setCompName(sc.nextLine());
+        tempResult.setCompName(sc.nextLine());
 
         System.out.println("Type in placement");
-        setPlacement(sc.nextInt());
+        tempResult.setPlacement(sc.nextInt());
 
         System.out.println("Type in time");
-        setCompTime(sc.nextDouble());
+        tempResult.setCompTime(sc.nextDouble());
 
+        return tempResult;
     }
 }

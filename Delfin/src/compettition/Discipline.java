@@ -51,11 +51,11 @@ public class Discipline {
     public void registerDiscipline(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type in the discipline:");
-        setType(sc.nextLine());
-
         System.out.println("Type in the distance:");
         setDistance(sc.nextInt());
+
+        System.out.println("Type in best training time");
+        setBestTraining(sc.nextDouble());
     }
 
     public double getRank(){

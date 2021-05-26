@@ -56,4 +56,12 @@ public class Team {
         }
     }
 
+    public void printNames(ArrayList<Competitor> listToPrint){
+
+        for(int i = 0; i < listToPrint.size(); i++){
+            String name = listToPrint.get(i).getName();
+
+            System.out.println((i+1) + ". " + name);
+        }
+    }
 }
