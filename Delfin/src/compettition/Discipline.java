@@ -8,12 +8,13 @@ public class Discipline {
     private int distance;
     double bestTraining;
     double rank;
-    ArrayList<Result2> results = new ArrayList<>();
+    ArrayList<Result2> results;
 
-    public Discipline(String type, int distance, double bestTraining) {
+    public Discipline(String type, int distance, double bestTraining, ArrayList<Result2> results) {
         this.type = type;
         this.distance = distance;
         this.bestTraining = bestTraining;
+        this.results = results;
     }
 
     public String getType() {

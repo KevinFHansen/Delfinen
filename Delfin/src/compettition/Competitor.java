@@ -17,6 +17,8 @@ public class Competitor extends Member{
     private int butterflyScore;
     private int breaststrokeScore;
     ArrayList<Discipline> disciplines = new ArrayList<>();
+    ArrayList<Result2> results = new ArrayList<>();
+
 
     public Competitor(String name, int age, String gender, ArrayList<Discipline> disciplines) {
         super(name, age, gender);
@@ -27,6 +29,10 @@ public class Competitor extends Member{
         else{
             this.ageGroup = "Senior";
         }
+    }
+
+    public ArrayList<Discipline> getDisciplines() {
+        return disciplines;
     }
 
     public void setScore(){
@@ -78,10 +84,19 @@ public class Competitor extends Member{
 
     public Competitor createCompetitorFromMember(Member member){
 
-        Discipline discipline0 = new Discipline("crawl", 0, 0.0);
-        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0);
-        Discipline discipline2 = new Discipline("butterfly", 0, 0.0);
-        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0);
+
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0, results);
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0, results);
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0, results);
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0, results);
+
+        Result2 tempResult = new Result2("NA", 0, 0.0);
+
+        discipline0.getResults().add(tempResult);
+        discipline1.getResults().add(tempResult);
+        discipline2.getResults().add(tempResult);
+        discipline3.getResults().add(tempResult);
+
         ArrayList<Discipline> disciplines = new ArrayList<>();
         disciplines.add(discipline0);
         disciplines.add(discipline1);
@@ -110,15 +125,15 @@ public class Competitor extends Member{
 
         writer.println("Age;Gender;Type;Distance;BestTrainingTime;CompetitionName;Placement;Time");
 
-        for (int i = 0; i < disciplines.size(); i++){
-            for(int j = 0; j < disciplines.get(i).getResults().size(); i++){
+        for (int i = 0; i < comp.getDisciplines().size(); i++){
+            for(int j = 0; j < comp.getDisciplines().get(i).getResults().size(); i++){
 
                 writer.print(comp.getAge() + ";" + comp.getGender() + ";");
-                writer.print(disciplines.get(i).getType() + ";" + disciplines.get(i).getDistance() + ";" + disciplines.get(i).getBestTraining() + ";");
+                writer.print(comp.getDisciplines().get(i).getType() + ";" + comp.getDisciplines().get(i).getDistance() + ";" + comp.getDisciplines().get(i).getBestTraining() + ";");
 
-                writer.print(disciplines.get(i).getResults().get(j).getCompName() + ";");
-                writer.print(disciplines.get(i).getResults().get(j).getPlacement() + ";");
-                writer.println(disciplines.get(i).getResults().get(j).getCompTime());
+                writer.print(comp.getDisciplines().get(i).getResults().get(j).getCompName() + ";");
+                writer.print(comp.getDisciplines().get(i).getResults().get(j).getPlacement() + ";");
+                writer.println(comp.getDisciplines().get(i).getResults().get(j).getCompTime());
             }
         }
         writer.close();
@@ -141,11 +156,10 @@ public class Competitor extends Member{
         }
 
 
-
-        Discipline discipline0 = new Discipline("crawl", 0, 0.0);
-        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0);
-        Discipline discipline2 = new Discipline("butterfly", 0, 0.0);
-        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0);
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0, results);
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0,results);
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0,results);
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0,results);
         ArrayList<Discipline> disciplines = new ArrayList<>();
         disciplines.add(discipline0);
         disciplines.add(discipline1);
