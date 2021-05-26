@@ -1,6 +1,6 @@
 name;age;email;phoneNumber;subscriptionType;gender;isMemberActive;hasMemberPaid
-Kevin;239;kev;23456789;wkerk;male;true;true;
-rasmus;12;mail@;12345;ewrwr;female;true;true;
+Kevin;239;kev;23456789;wkerk;Male;true;true;
+rasmus;12;mail@;12345;ewrwr;Female;true;true;
 Jonas;22;wwer;1234;erter;male;true;false;
 Issa;2;eded;3030;sss;female;true;true;
 Tobias;23;ldldld;303030;male;true;true;
