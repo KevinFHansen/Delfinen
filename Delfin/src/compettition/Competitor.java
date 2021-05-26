@@ -24,6 +24,24 @@ public class Competitor extends Member{
         }
     }
 
+    public Competitor createCompetitorFromMember(Member member){
+
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0);
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0);
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0);
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0);
+        ArrayList<Discipline> disciplines = new ArrayList<>();
+        disciplines.add(discipline0);
+        disciplines.add(discipline1);
+        disciplines.add(discipline2);
+        disciplines.add(discipline3);
+
+        Competitor competitor = new Competitor(member.getName(), member.getAge(), member.getGender(), disciplines);
+
+
+        return competitor;
+    }
+
     // create competitor csv
     public void createCompFile(Competitor comp) throws IOException {
 
@@ -55,8 +73,8 @@ public class Competitor extends Member{
     }
 
     // read comp csv
-    public Competitor readCompFileToArray(String gender, String ageGroup, String memberName) throws FileNotFoundException {
-        File compFile = new File("Delfin/Ressources/Competitors" + ageGroup + "/" + gender + "/" + memberName + ".csv");
+    public Competitor readCompFile(String gender, String ageGroup, String fileName) throws FileNotFoundException {
+        File compFile = new File("Delfin/Ressources/Competitors" + ageGroup + "/" + gender + "/" + fileName);
         Scanner scFile = new Scanner(compFile);
 
         ArrayList<String[]> competitorArrays = new ArrayList<>();
@@ -72,22 +90,19 @@ public class Competitor extends Member{
 
 
 
-        Discipline discipline1 = new Discipline("crawl", 0, 0.0);
-        Discipline discipline2 = new Discipline("backcrawl", 0, 0.0);
-        Discipline discipline3 = new Discipline("butterfly", 0, 0.0);
-        Discipline discipline4 = new Discipline("breaststroke", 0, 0.0);
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0);
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0);
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0);
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0);
         ArrayList<Discipline> disciplines = new ArrayList<>();
+        disciplines.add(discipline0);
         disciplines.add(discipline1);
         disciplines.add(discipline2);
         disciplines.add(discipline3);
-        disciplines.add(discipline4);
 
-
+        String memberName = fileName.substring(0, fileName.lastIndexOf('.'));
 
         Competitor competitor = new Competitor(memberName, parseInt(competitorArrays.get(0)[0]), competitorArrays.get(0)[1], disciplines);
-
-
-        // Age;Gender;Type;Distance;BestTrainingTime;CompetitionName;Placement;Time
 
         int count0 = 0;
         int count1 = 0;
@@ -108,7 +123,6 @@ public class Competitor extends Member{
                 disciplines.get(0).getResults().get(count0).setCompName(competitorArrays.get(i)[5].trim());
                 disciplines.get(0).getResults().get(count0).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
                 disciplines.get(0).getResults().get(count0).setCompTime(Double.parseDouble(competitorArrays.get(i)[7].trim()));
-
 
                 count0++;
 
