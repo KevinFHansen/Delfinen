@@ -5,7 +5,9 @@ import members.MemberManagement;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class TeamManagement {
@@ -65,7 +67,7 @@ public class TeamManagement {
 
             // Male
             if(chosenGender == 1){
-                team.printNames(team.juniorMale);
+                team.printNames(team.juniorMale, team.juniorMale.size());
                 System.out.println("Choose competitor");
                 int chosenComp = scInt.nextInt()-1;
 
@@ -75,7 +77,7 @@ public class TeamManagement {
 
             // Female
             else if(chosenGender == 2) {
-                team.printNames(team.juniorFemale);
+                team.printNames(team.juniorFemale, team.juniorFemale.size());
                 System.out.println("Choose competitor");
                 int chosenComp = scInt.nextInt()-1;
 
@@ -88,7 +90,7 @@ public class TeamManagement {
 
             // Male
             if(chosenGender == 1){
-                team.printNames(team.seniorMale);
+                team.printNames(team.seniorMale, team.seniorMale.size());
                 System.out.println("Choose competitor");
                 int chosenComp = scInt.nextInt()-1;
 
@@ -97,7 +99,7 @@ public class TeamManagement {
 
             // Female
             else if(chosenGender == 2){
-                team.printNames(team.seniorFemale);
+                team.printNames(team.seniorFemale, team.seniorFemale.size());
                 System.out.println("Choose competitor");
                 int chosenComp = scInt.nextInt()-1;
 
@@ -149,6 +151,8 @@ public class TeamManagement {
 
                     compToUpdateDis.disciplines.get(chosenDiscipline1).registerDiscipline();
 
+                    competitor.createCompFile(compToUpdateDis);
+
                     break;
 
                 case 3:
@@ -160,11 +164,98 @@ public class TeamManagement {
 
                     compToUpdateRes.disciplines.get(chosenDiscipline2).results.add(result.registerResult());
 
+                    competitor.createCompFile(compToUpdateRes);
+
                     break;
 
-                case 4:
+                case 4: // Choose discipline, create ranking list, display list, override tostring
+                    team.initializeTeams();
+                    ArrayList<Competitor> rankListToPrint = new ArrayList<>();
+
+                    ageGroupSubUI();
+                    int chosenGroup = scInt.nextInt();
+
+                    genderSubUI();
+                    int chosenGender = scInt.nextInt();
+
+                    // Junior
+                    if(chosenGroup == 1){
+
+                        // Male
+                        if(chosenGender == 1){
+
+                            Collections.sort(team.juniorMale, new Competitor.rankCrawl());
+                            team.printNames(team.juniorMale, 5);
+
+                            Collections.sort(team.juniorMale, new Competitor.rankBackCrawl());
+                            team.printNames(team.juniorMale, 5);
+
+                            Collections.sort(team.juniorMale, new Competitor.rankButterfly());
+                            team.printNames(team.juniorMale, 5);
+
+                            Collections.sort(team.juniorMale, new Competitor.rankBreaststroke());
+                            team.printNames(team.juniorMale, 5);
+                        }
+
+                        // Female
+                        else if(chosenGender == 2) {
+
+                            Collections.sort(team.juniorFemale, new Competitor.rankCrawl());
+                            team.printNames(team.juniorFemale, 5);
+
+                            Collections.sort(team.juniorFemale, new Competitor.rankBackCrawl());
+                            team.printNames(team.juniorFemale, 5);
+
+                            Collections.sort(team.juniorFemale, new Competitor.rankButterfly());
+                            team.printNames(team.juniorFemale, 5);
+
+                            Collections.sort(team.juniorFemale, new Competitor.rankBreaststroke());
+                            team.printNames(team.juniorFemale, 5);
+                        }
+                    }
+
+                    // Senior
+                    else if(chosenGroup == 2){
+
+                        // Male
+                        if(chosenGender == 1){
+
+                            Collections.sort(team.seniorMale, new Competitor.rankCrawl());
+                            team.printNames(team.seniorMale, 5);
+
+                            Collections.sort(team.seniorMale, new Competitor.rankBackCrawl());
+                            team.printNames(team.seniorMale, 5);
+
+                            Collections.sort(team.seniorMale, new Competitor.rankButterfly());
+                            team.printNames(team.seniorMale, 5);
+
+                            Collections.sort(team.seniorMale, new Competitor.rankBreaststroke());
+                            team.printNames(team.seniorMale, 5);
 
 
+                        }
+
+                        // Female
+                        else if(chosenGender == 2){
+
+                            Collections.sort(team.seniorFemale, new Competitor.rankCrawl());
+                            team.printNames(team.seniorFemale, 5);
+
+                            Collections.sort(team.seniorFemale, new Competitor.rankBackCrawl());
+                            team.printNames(team.seniorFemale, 5);
+
+                            Collections.sort(team.seniorFemale, new Competitor.rankButterfly());
+                            team.printNames(team.seniorFemale, 5);
+
+                            Collections.sort(team.seniorFemale, new Competitor.rankBreaststroke());
+                            team.printNames(team.seniorFemale, 5);
+
+                        }
+                    }
+
+                    else {
+                        System.out.println("Type 1 or 2 then enter - Try again");
+                    }
 
                     break;
 

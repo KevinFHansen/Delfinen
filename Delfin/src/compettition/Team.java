@@ -56,9 +56,9 @@ public class Team {
         }
     }
 
-    public void printNames(ArrayList<Competitor> listToPrint){
+    public void printNames(ArrayList<Competitor> listToPrint, int numberOfTimes){
 
-        for(int i = 0; i < listToPrint.size(); i++){
+        for(int i = 0; i < numberOfTimes; i++){
             String name = listToPrint.get(i).getName();
 
             System.out.println((i+1) + ". " + name);

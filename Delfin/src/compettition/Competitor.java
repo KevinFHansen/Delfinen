@@ -5,12 +5,17 @@ import members.Member;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
 public class Competitor extends Member{
     private String ageGroup;
+    private int crawlScore;
+    private int backCrawlScore;
+    private int butterflyScore;
+    private int breaststrokeScore;
     ArrayList<Discipline> disciplines = new ArrayList<>();
 
     public Competitor(String name, int age, String gender, ArrayList<Discipline> disciplines) {
@@ -22,6 +27,53 @@ public class Competitor extends Member{
         else{
             this.ageGroup = "Senior";
         }
+    }
+
+    public void setScore(){
+        this.crawlScore = (int)(disciplines.get(0).getRank() * 100);
+        this.backCrawlScore = (int)(disciplines.get(1).getRank() * 100);
+        this.butterflyScore = (int)(disciplines.get(2).getRank() * 100);
+        this.breaststrokeScore = (int)(disciplines.get(3).getRank() * 100);
+    }
+
+    public static class rankCrawl implements Comparator<Competitor>{
+        public int compare(Competitor a, Competitor b){
+            return a.crawlScore - b.crawlScore;
+        }
+    }
+
+    public static class rankBackCrawl implements Comparator<Competitor>{
+        public int compare(Competitor a, Competitor b){
+            return a.backCrawlScore - b.backCrawlScore;
+        }
+    }
+
+    public static class rankButterfly implements Comparator<Competitor>{
+        public int compare(Competitor a, Competitor b){
+            return a.butterflyScore - b.butterflyScore;
+        }
+    }
+
+    public static class rankBreaststroke implements Comparator<Competitor>{
+        public int compare(Competitor a, Competitor b){
+            return a.breaststrokeScore - b.breaststrokeScore;
+        }
+    }
+
+    public int getCrawlScore() {
+        return crawlScore;
+    }
+
+    public int getBackCrawlScore() {
+        return backCrawlScore;
+    }
+
+    public int getButterflyScore() {
+        return butterflyScore;
+    }
+
+    public int getBreaststrokeScore() {
+        return breaststrokeScore;
     }
 
     public Competitor createCompetitorFromMember(Member member){
@@ -184,5 +236,10 @@ public class Competitor extends Member{
         disciplines.get(3).setRank();
 
         return competitor;
+    }
+
+    @Override
+    public String toString(){
+        return getName();
     }
 }
