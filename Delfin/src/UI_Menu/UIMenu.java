@@ -102,7 +102,6 @@ public class UIMenu {
 
                 int choice3 = scn.nextInt();
                 if (choice3 == 1){
-                    System.out.println("View subscriptions");
                     payment.viewArrears();
 
                 }

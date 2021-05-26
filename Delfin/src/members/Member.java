@@ -1,5 +1,5 @@
 package members;
-
+// @author Michael Dyvad
 public class Member {
     private String name;
     private int age;
