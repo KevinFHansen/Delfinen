@@ -1,7 +1,5 @@
 package subscription;
 
-import members.Member;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -1,18 +1,14 @@
 package subscription;
 
-import members.Member;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.FileNotFoundException;
 
 class PaymentTest {
 
+    //The purpose of the test is to figure out if the sum has the right expected subscription income.
     @Test
     void viewExpectedSubIncome() throws FileNotFoundException {
         //Arrange
@@ -20,9 +16,9 @@ class PaymentTest {
 
         //Act
         pay.viewExpectedSubIncome();
-        double sum = pay.getSum();
+        double expectedSubIncome = pay.getSum();
 
         //Assert
-        Assertions.assertEquals(5900.0, sum);
+        Assertions.assertEquals(8000.0, expectedSubIncome);
     }
 }
