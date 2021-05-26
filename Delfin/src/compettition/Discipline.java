@@ -1,0 +1,60 @@
+package compettition;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Discipline {
+    private String type;
+    private int distance;
+    double bestTraining;
+    ArrayList<Result2> results = new ArrayList<>();
+
+    public Discipline(String type, int distance, double bestTraining) {
+        this.type = type;
+        this.distance = distance;
+        this.bestTraining = bestTraining;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public ArrayList<Result2> getResults() {
+        return results;
+    }
+
+    public void setResults(ArrayList<Result2> results) {
+        this.results = results;
+    }
+
+    public double getBestTraining() {
+        return bestTraining;
+    }
+
+    public void setBestTraining(double bestTraining) {
+        this.bestTraining = bestTraining;
+    }
+
+    public void registerDiscipline(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Type in the discipline:");
+        setType(sc.nextLine());
+
+        System.out.println("Type in the distance:");
+        setDistance(sc.nextInt());
+    }
+}
+

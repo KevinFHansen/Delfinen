@@ -23,6 +23,12 @@ public class Member {
         this.hasPaid = hasPaid;
     }
 
+    public Member(String name, int age, String gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
     //getters
 
     public String getName(){
