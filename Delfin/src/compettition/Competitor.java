@@ -10,11 +10,10 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class Competitor extends Member{
-    private double rank;
     private String ageGroup;
     ArrayList<Discipline> disciplines = new ArrayList<>();
 
-    public Competitor(String name, int age, String gender) {
+    public Competitor(String name, int age, String gender, ArrayList<Discipline> disciplines) {
         super(name, age, gender);
 
         if(age < 18){
@@ -23,13 +22,6 @@ public class Competitor extends Member{
         else{
             this.ageGroup = "Senior";
         }
-    }
-
-    public double calcRank(){
-        // calculate rank from results
-        double calcRank = 0.0;
-
-        return calcRank;
     }
 
     // create competitor csv
@@ -78,46 +70,99 @@ public class Competitor extends Member{
             competitorArrays.add(lineAsArray);
         }
 
-        Competitor competitor = new Competitor(memberName, parseInt(competitorArrays.get(0)[0]), competitorArrays.get(0)[1]);
+
+
+        Discipline discipline1 = new Discipline("crawl", 0, 0.0);
+        Discipline discipline2 = new Discipline("backcrawl", 0, 0.0);
+        Discipline discipline3 = new Discipline("butterfly", 0, 0.0);
+        Discipline discipline4 = new Discipline("breaststroke", 0, 0.0);
+        ArrayList<Discipline> disciplines = new ArrayList<>();
+        disciplines.add(discipline1);
+        disciplines.add(discipline2);
+        disciplines.add(discipline3);
+        disciplines.add(discipline4);
+
+
+
+        Competitor competitor = new Competitor(memberName, parseInt(competitorArrays.get(0)[0]), competitorArrays.get(0)[1], disciplines);
+
 
         // Age;Gender;Type;Distance;BestTrainingTime;CompetitionName;Placement;Time
 
-        if(competitorArrays.size() == 1){
-            disciplines.get(0).setType(competitorArrays.get(0)[2].trim());
-            disciplines.get(0).setDistance(Integer.parseInt(competitorArrays.get(0)[3].trim()));
-            disciplines.get(0).setBestTraining(Double.parseDouble(competitorArrays.get(0)[4].trim()));
+        int count0 = 0;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+
+        for(int i = 0; i < competitorArrays.size(); i++){
+
+            if(competitorArrays.get(i)[2].equals("crawl")){
+                disciplines.get(0).setType(competitorArrays.get(i)[2].trim());
+                disciplines.get(0).setDistance(Integer.parseInt(competitorArrays.get(i)[3].trim()));
+                disciplines.get(0).setBestTraining(Double.parseDouble(competitorArrays.get(i)[4].trim()));
+
+                Result2 tempResult = new Result2(null, 0, 0.0);
+
+                disciplines.get(0).getResults().add(tempResult);
+
+                disciplines.get(0).getResults().get(count0).setCompName(competitorArrays.get(i)[5].trim());
+                disciplines.get(0).getResults().get(count0).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
+                disciplines.get(0).getResults().get(count0).setCompTime(Double.parseDouble(competitorArrays.get(i)[7].trim()));
 
 
-        }
-        else {
-            int count = 0;
-            int count2 = 0;
+                count0++;
 
-            for (int i = 1; i < competitorArrays.size(); i++) {
+            }
 
-                if(competitorArrays.get(i-1)[2].equals(competitorArrays.get(i)[2])) {
+            else if(competitorArrays.get(i)[2].equals("backcrawl")){
+                disciplines.get(1).setType(competitorArrays.get(i)[2].trim());
+                disciplines.get(1).setDistance(Integer.parseInt(competitorArrays.get(i)[3].trim()));
+                disciplines.get(1).setBestTraining(Double.parseDouble(competitorArrays.get(i)[4].trim()));
 
-                    disciplines.get(i-count+count2).getResults().get(count).setCompName(competitorArrays.get(count)[5].trim());
-                    disciplines.get(i-count+count2).getResults().get(count).setPlacement(Integer.parseInt(competitorArrays.get(count)[6].trim()));
-                    disciplines.get(i-count+count2).getResults().get(count).setCompTime(Double.parseDouble(competitorArrays.get(count)[7].trim()));
+                Result2 tempResult = new Result2(null, 0, 0.0);
 
-                    count++;
-                }
+                disciplines.get(1).getResults().add(tempResult);
 
-                if (i % count != 0) {
-                    disciplines.get(i-count+count2).setType(competitorArrays.get(i-count+count2)[2].trim());
-                    disciplines.get(i-count+count2).setDistance(Integer.parseInt(competitorArrays.get(i-count+count2)[3].trim()));
-                    disciplines.get(i-count+count2).setBestTraining(Double.parseDouble(competitorArrays.get(i-count+count2)[4].trim()));
+                disciplines.get(1).getResults().get(count1).setCompName(competitorArrays.get(i)[5].trim());
+                disciplines.get(1).getResults().get(count1).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
+                disciplines.get(1).getResults().get(count1).setCompTime(Double.parseDouble(competitorArrays.get(i)[7].trim()));
 
-                    count = i;
-                    count2++;
+                count1++;
+            }
 
-                }
+            else if(competitorArrays.get(i)[2].equals("butterfly")){
+                disciplines.get(2).setType(competitorArrays.get(i)[2].trim());
+                disciplines.get(2).setDistance(Integer.parseInt(competitorArrays.get(i)[3].trim()));
+                disciplines.get(2).setBestTraining(Double.parseDouble(competitorArrays.get(i)[4].trim()));
+
+                Result2 tempResult = new Result2(null, 0, 0.0);
+
+                disciplines.get(2).getResults().add(tempResult);
+
+                disciplines.get(2).getResults().get(count2).setCompName(competitorArrays.get(i)[5].trim());
+                disciplines.get(2).getResults().get(count2).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
+                disciplines.get(2).getResults().get(count2).setCompTime(Double.parseDouble(competitorArrays.get(i)[7].trim()));
+
+                count2++;
+            }
+
+            else{
+                disciplines.get(3).setType(competitorArrays.get(i)[2].trim());
+                disciplines.get(3).setDistance(Integer.parseInt(competitorArrays.get(i)[3].trim()));
+                disciplines.get(3).setBestTraining(Double.parseDouble(competitorArrays.get(i)[4].trim()));
+
+                Result2 tempResult = new Result2(null, 0, 0.0);
+
+                disciplines.get(3).getResults().add(tempResult);
+
+                disciplines.get(3).getResults().get(count3).setCompName(competitorArrays.get(i)[5].trim());
+                disciplines.get(3).getResults().get(count3).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
+                disciplines.get(3).getResults().get(count3).setCompTime(Double.parseDouble(competitorArrays.get(i)[7].trim()));
+
+                count3++;
             }
         }
+
         return competitor;
     }
-
-    /** Age;Gender;Type;Distance;BestTrainingTime;CompetitionName;Placement;Time
-     **/
 }
