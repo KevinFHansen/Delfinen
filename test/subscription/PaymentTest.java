@@ -18,6 +18,7 @@ class PaymentTest {
         pay.viewExpectedSubIncome();
         double expectedSubIncome = pay.getSum();
 
+        //You have to write in the expected subscription income manually when changes occurs.
         //Assert
         Assertions.assertEquals(8000.0, expectedSubIncome);
     }
