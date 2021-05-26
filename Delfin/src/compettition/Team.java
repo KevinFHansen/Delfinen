@@ -14,10 +14,10 @@ public class Team {
 
     public void initializeTeams() throws FileNotFoundException {
 
-        File[] jMDir = new File("Delfin/Ressources/Competitors/Junior/Male").listFiles();
-        File[] jFDir = new File("Delfin/Ressources/Competitors/Junior/Female").listFiles();
-        File[] sMDir = new File("Delfin/Ressources/Competitors/Senior/Male").listFiles();
-        File[] sFDir = new File("Delfin/Ressources/Competitors/Senior/Female").listFiles();
+        File[] jMDir = new File("Delfin/Ressources/Team/Junior/Male").listFiles();
+        File[] jFDir = new File("Delfin/Ressources/Team/Junior/Female").listFiles();
+        File[] sMDir = new File("Delfin/Ressources/Team/Senior/Male").listFiles();
+        File[] sFDir = new File("Delfin/Ressources/Team/Senior/Female").listFiles();
 
         for(int i = 0; i < jMDir.length; i++){
 

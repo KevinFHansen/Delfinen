@@ -126,7 +126,7 @@ public class Competitor extends Member{
 
     // read comp csv
     public Competitor readCompFile(String gender, String ageGroup, String fileName) throws FileNotFoundException {
-        File compFile = new File("Delfin/Ressources/Competitors" + ageGroup + "/" + gender + "/" + fileName);
+        File compFile = new File("Delfin/Ressources/Team/" + ageGroup + "/" + gender + "/" + fileName);
         Scanner scFile = new Scanner(compFile);
 
         ArrayList<String[]> competitorArrays = new ArrayList<>();

@@ -2,6 +2,7 @@ package UI_Menu;
 
 // @author Kevin Funch Hansen
 
+import compettition.TeamManagement;
 import members.Member;
 import members.MemberManagement;
 import subscription.Payment;
@@ -13,6 +14,7 @@ import java.util.Scanner;
 
 public class UIMenu {
 
+    TeamManagement teamManagement = new TeamManagement();
     Member member = new Member(null, 0, null,0,null, null, true, true);
     Subscription subscription = new Subscription();
     Payment payment = new Payment();
@@ -69,6 +71,10 @@ public class UIMenu {
 
             case 2:
 
+                teamManagement.runTeamManagement();
+
+
+                /**
                 resultManagementMenu();
 
                 int choice1 = scn.nextInt();
@@ -93,7 +99,8 @@ public class UIMenu {
                     else{
                         System.out.println("Wrong input - Try again");
                     }
-                }
+                } **/
+
                 break;
 
             case 3:
@@ -131,7 +138,7 @@ public class UIMenu {
 
     public void mainMenu(){
         System.out.println("1. Member Management");
-        System.out.println("2. Result Management");
+        System.out.println("2. Team Management");
         System.out.println("3. Subscription Management");
         System.out.println("0. Exit Program");
 }

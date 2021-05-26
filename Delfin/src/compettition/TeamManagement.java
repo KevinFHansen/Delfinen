@@ -18,6 +18,7 @@ public class TeamManagement {
     Team team = new Team();
     Competitor competitor = new Competitor(null, 0, null, null);
     MemberManagement memberManagement = new MemberManagement();
+
     Result2 result = new Result2(null, 0, 0.0);
 
     public void teamManagementUI(){
@@ -116,6 +117,9 @@ public class TeamManagement {
 
     public void runTeamManagement() throws IOException {
         boolean exit = false;
+        ArrayList<Member> memberList = memberManagement.readMemberList();
+
+        System.out.println(memberList);
 
         while(!exit){
 
@@ -127,14 +131,11 @@ public class TeamManagement {
 
                 case 1:
 
-                    ArrayList<Member> memberList = memberManagement.readMemberList();
-
-                    System.out.println("Choose member:");
-
                     for(int i = 0; i < memberList.size(); i++){
                         System.out.println((i+1) + ". " + memberList.get(i).getName());
                     }
 
+                    System.out.println("Choose member:");
                     int chosenMember = scInt.nextInt()-1;
 
                     Competitor tempComp = competitor.createCompetitorFromMember(memberList.get(chosenMember));
