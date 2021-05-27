@@ -53,10 +53,10 @@ public class Discipline {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Type in the distance:");
-        setDistance(sc.nextInt());
+        setDistance(Integer.parseInt(sc.nextLine()));
 
         System.out.println("Type in best training time");
-        setBestTraining(sc.nextDouble());
+        setBestTraining(Double.parseDouble(sc.nextLine()));
     }
 
     public double getRank(){

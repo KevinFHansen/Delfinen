@@ -158,7 +158,7 @@ public class Competitor extends Member{
         File compFile = new File("Delfin/Ressources/Team/" + ageGroup + "/" + gender + "/" + fileName);
         Scanner scFile = new Scanner(compFile);
 
-        ArrayList<String[]> competitorArrays = new ArrayList<>();
+        ArrayList<String[]> competitorArrays = new ArrayList<String[]>();
 
         scFile.nextLine();
 
@@ -170,11 +170,12 @@ public class Competitor extends Member{
         }
 
 
-        Discipline discipline0 = new Discipline("crawl", 0, 0.0, results);
-        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0,results);
-        Discipline discipline2 = new Discipline("butterfly", 0, 0.0,results);
-        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0,results);
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0, new ArrayList<Result2>());
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0,new ArrayList<Result2>());
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0,new ArrayList<Result2>());
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0,new ArrayList<Result2>());
         ArrayList<Discipline> disciplines = new ArrayList<>();
+
         disciplines.add(discipline0);
         disciplines.add(discipline1);
         disciplines.add(discipline2);
