@@ -17,7 +17,7 @@ public class MemberManagement {
     private static ArrayList<Member> memberList = new ArrayList<>();
     static Scanner userInput = new Scanner(System.in);
 
-    //Skal kunne oprette et nyt medlem og registrere data - Gemme members i en arraylist
+    // Registers an instance of a member and safes it in an Arraylist
     public static void registerMember(ArrayList<Member> memberList) throws FileNotFoundException {
 
         System.out.println("Register new member");
@@ -50,6 +50,7 @@ public class MemberManagement {
         createMemberList(memberList);
     }
 
+    // View registered members - Update directly
 
     public static void viewMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner scn = new Scanner(System.in);
@@ -57,6 +58,7 @@ public class MemberManagement {
         for (int i = 0; i < memberList.size(); i++){
             System.out.println(memberList.get(i));
         }
+
 
         System.out.println("Do you want to update a member?");
         System.out.println("1. Yes");
@@ -70,12 +72,10 @@ public class MemberManagement {
 
             }
 
-
-
     }
 
 
-
+    //Updates registered members - Prompts for registered phone number
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
 
@@ -221,6 +221,7 @@ public class MemberManagement {
 
         createMemberList(memberList);
     }
+    // writing list of members to csv-file
 
     public static void createMemberList(ArrayList<Member> memberList) throws FileNotFoundException {
         File fout = new File("Delfin/Ressources/Members.csv");
@@ -240,6 +241,9 @@ public class MemberManagement {
         }
         writer.close();
     }
+
+
+    //Update menu
 
     public static void updateMemberMenu(){
         System.out.println("What would u like to update?");

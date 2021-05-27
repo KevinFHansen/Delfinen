@@ -78,7 +78,7 @@ public class UIMenu {
 
                 subManagementMenu();
 
-                ArrayList<Member> memberListToUpdate = memberList;
+                ArrayList<Member> memberListToUpdate =  memberList;
 
                 System.out.println(memberListToUpdate.size());
 
