@@ -189,7 +189,6 @@ public class MemberManagement {
             Member tmpMember = new Member(name, age, email, phoneNumber, subType, gender, isMemberActive, hasMemberPaid);
             memberList.add(tmpMember);
         }
-        System.out.println(memberList.size());
 
         return memberList;
 
