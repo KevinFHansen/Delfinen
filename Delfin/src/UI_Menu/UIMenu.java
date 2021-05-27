@@ -80,8 +80,6 @@ public class UIMenu {
 
                 ArrayList<Member> memberListToUpdate = memberList;
 
-                System.out.println(memberListToUpdate.size());
-
                 subscription.generateFee(memberListToUpdate);
 
                 ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
