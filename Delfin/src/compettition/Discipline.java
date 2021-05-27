@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Discipline {
     private String type;
     private int distance;
-    double bestTraining;
-    double rank;
-    ArrayList<Result2> results;
+    private double bestTraining;
+    private double rank;
+    private ArrayList<Result2> results;
 
     public Discipline(String type, int distance, double bestTraining, ArrayList<Result2> results) {
         this.type = type;
@@ -53,10 +53,10 @@ public class Discipline {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Type in the distance:");
-        setDistance(sc.nextInt());
+        setDistance(Integer.parseInt(sc.nextLine()));
 
         System.out.println("Type in best training time");
-        setBestTraining(sc.nextDouble());
+        setBestTraining(Double.parseDouble(sc.nextLine()));
     }
 
     public double getRank(){

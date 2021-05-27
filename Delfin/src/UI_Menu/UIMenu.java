@@ -73,34 +73,6 @@ public class UIMenu {
 
                 teamManagement.runTeamManagement();
 
-
-                /**
-                resultManagementMenu();
-
-                int choice1 = scn.nextInt();
-
-                if (choice1 == 1) {
-
-                    trainingResultMenu();
-
-                    int choice2 = scn.nextInt();
-                    if (choice2 == 1){
-                        //registerTrainingResult();
-                    }
-                    else if (choice2 == 2){
-                        //updateTrainingResult();
-                    }
-                    else if (choice2 == 3){
-                        //deleteTrainingResult();
-                    }
-                    else if(choice2 == 4){
-                        //Go back
-                    }
-                    else{
-                        System.out.println("Wrong input - Try again");
-                    }
-                } **/
-
                 break;
 
             case 3:

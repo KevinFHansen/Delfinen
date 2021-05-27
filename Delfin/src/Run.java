@@ -6,10 +6,10 @@ import java.io.IOException;
 public class Run {
 
     public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
-        //UIMenu uiMenu = new UIMenu();
-        //uiMenu.startUI();
+        UIMenu uiMenu = new UIMenu();
+        uiMenu.startUI();
 
-        CreateTestData testData = new CreateTestData();
-        testData.createTestData();
+        //CreateTestData testData = new CreateTestData();
+        //testData.createTestData();
     }
 }

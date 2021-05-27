@@ -16,8 +16,8 @@ public class Competitor extends Member{
     private int backCrawlScore;
     private int butterflyScore;
     private int breaststrokeScore;
-    ArrayList<Discipline> disciplines = new ArrayList<>();
-    ArrayList<Result2> results = new ArrayList<>();
+    ArrayList<Discipline> disciplines;
+    ArrayList<Result2> results;
 
 
     public Competitor(String name, int age, String gender, ArrayList<Discipline> disciplines) {
@@ -29,6 +29,20 @@ public class Competitor extends Member{
         else{
             this.ageGroup = "Senior";
         }
+
+        this.disciplines = disciplines;
+    }
+
+    public Competitor(String name, int age, String gender) {
+        super(name, age, gender);
+
+        if(age < 18){
+            this.ageGroup = "Junior";
+        }
+        else{
+            this.ageGroup = "Senior";
+        }
+        this.disciplines = new ArrayList<Discipline>();
     }
 
     public ArrayList<Discipline> getDisciplines() {
@@ -85,10 +99,10 @@ public class Competitor extends Member{
     public Competitor createCompetitorFromMember(Member member){
 
 
-        Discipline discipline0 = new Discipline("crawl", 0, 0.0, results);
-        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0, results);
-        Discipline discipline2 = new Discipline("butterfly", 0, 0.0, results);
-        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0, results);
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0, new ArrayList<Result2>());
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0, new ArrayList<Result2>());
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0, new ArrayList<Result2>());
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0, new ArrayList<Result2>());
 
         Result2 tempResult = new Result2("NA", 0, 0.0);
 
@@ -104,7 +118,6 @@ public class Competitor extends Member{
         disciplines.add(discipline3);
 
         Competitor competitor = new Competitor(member.getName(), member.getAge(), member.getGender(), disciplines);
-
 
         return competitor;
     }
@@ -124,9 +137,10 @@ public class Competitor extends Member{
         writer.print("");
 
         writer.println("Age;Gender;Type;Distance;BestTrainingTime;CompetitionName;Placement;Time");
+        // for loop does not write! :(
 
         for (int i = 0; i < comp.getDisciplines().size(); i++){
-            for(int j = 0; j < comp.getDisciplines().get(i).getResults().size(); i++){
+            for(int j = 0; j < comp.getDisciplines().get(i).getResults().size(); j++){
 
                 writer.print(comp.getAge() + ";" + comp.getGender() + ";");
                 writer.print(comp.getDisciplines().get(i).getType() + ";" + comp.getDisciplines().get(i).getDistance() + ";" + comp.getDisciplines().get(i).getBestTraining() + ";");
@@ -144,7 +158,7 @@ public class Competitor extends Member{
         File compFile = new File("Delfin/Ressources/Team/" + ageGroup + "/" + gender + "/" + fileName);
         Scanner scFile = new Scanner(compFile);
 
-        ArrayList<String[]> competitorArrays = new ArrayList<>();
+        ArrayList<String[]> competitorArrays = new ArrayList<String[]>();
 
         scFile.nextLine();
 
@@ -156,11 +170,12 @@ public class Competitor extends Member{
         }
 
 
-        Discipline discipline0 = new Discipline("crawl", 0, 0.0, results);
-        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0,results);
-        Discipline discipline2 = new Discipline("butterfly", 0, 0.0,results);
-        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0,results);
+        Discipline discipline0 = new Discipline("crawl", 0, 0.0, new ArrayList<Result2>());
+        Discipline discipline1 = new Discipline("backcrawl", 0, 0.0,new ArrayList<Result2>());
+        Discipline discipline2 = new Discipline("butterfly", 0, 0.0,new ArrayList<Result2>());
+        Discipline discipline3 = new Discipline("breaststroke", 0, 0.0,new ArrayList<Result2>());
         ArrayList<Discipline> disciplines = new ArrayList<>();
+
         disciplines.add(discipline0);
         disciplines.add(discipline1);
         disciplines.add(discipline2);
@@ -184,7 +199,7 @@ public class Competitor extends Member{
 
                 Result2 tempResult = new Result2(null, 0, 0.0);
 
-                disciplines.get(0).results.add(tempResult);
+                disciplines.get(0).getResults().add(tempResult);
 
                 disciplines.get(0).getResults().get(count0).setCompName(competitorArrays.get(i)[5].trim());
                 disciplines.get(0).getResults().get(count0).setPlacement(Integer.parseInt(competitorArrays.get(i)[6].trim()));
@@ -254,6 +269,6 @@ public class Competitor extends Member{
 
     @Override
     public String toString(){
-        return getName();
+        return getName() + getDisciplines();
     }
 }
