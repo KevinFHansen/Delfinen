@@ -30,10 +30,11 @@ public class Subscription {
     }
 
     // Adding instance of Member class to the attribute memberSubscriptionList
-    public void addMembersToSub(ArrayList<Member> members){
+    public ArrayList<Member> addMembersToSub(ArrayList<Member> members){
         for (int i = 0; i < members.size(); i ++){
             memberSubscriptionList.add(members.get(i));
         }
+        return memberSubscriptionList;
     }
 
     // writing list of subscriptions to csv-file
