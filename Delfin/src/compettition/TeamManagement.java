@@ -5,7 +5,6 @@ import members.MemberManagement;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -13,7 +12,6 @@ import java.util.Scanner;
 public class TeamManagement {
 
     Scanner scInt = new Scanner(System.in);
-    Scanner scString = new Scanner(System.in);
 
     Team team = new Team();
     Competitor competitor = new Competitor(null, 0, null, null);
@@ -117,9 +115,9 @@ public class TeamManagement {
 
     public void runTeamManagement() throws IOException {
         boolean exit = false;
-        ArrayList<Member> memberList = memberManagement.readMemberList();
-
-        System.out.println(memberList);
+        ArrayList<Member> memberList = new ArrayList<>();
+        memberList.clear();
+        memberList = memberManagement.readMemberList();
 
         while(!exit){
 

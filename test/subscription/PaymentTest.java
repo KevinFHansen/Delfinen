@@ -1,10 +1,12 @@
 package subscription;
 // @author Michael Dyvad
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 
 
 import java.io.FileNotFoundException;
+
+import static org.junit.Assert.assertEquals;
 
 class PaymentTest {
 
@@ -20,6 +22,6 @@ class PaymentTest {
 
         //You have to write in the expected subscription income manually when changes occurs.
         //Assert
-        Assertions.assertEquals(8000.0, expectedSubIncome);
+        assertEquals(8000.0, expectedSubIncome);
     }
 }

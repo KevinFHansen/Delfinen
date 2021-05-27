@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class MemberManagement {
 
     Member member = new Member(null, 0, null,0,null, null, true, true);
-    private static ArrayList<Member> memberList = new ArrayList<>();
+    //ArrayList<Member> memberList = new ArrayList<>();
     static Scanner userInput = new Scanner(System.in);
 
     // Registers an instance of a member and safes it in an Arraylist
@@ -175,6 +175,7 @@ public class MemberManagement {
     public ArrayList<Member> readMemberList() throws FileNotFoundException {
         File membersList = new File("Delfin/Ressources/Members.csv");
         Scanner readFileScanner = new Scanner(membersList);
+        ArrayList<Member> memberList = new ArrayList<>();
 
         readFileScanner.nextLine();
 
@@ -194,8 +195,10 @@ public class MemberManagement {
             Member tmpMember = new Member(name, age, email, phoneNumber, subType, gender, isMemberActive, hasMemberPaid);
             memberList.add(tmpMember);
         }
+        System.out.println(memberList.size());
 
         return memberList;
+
     }
 
     //Method to members - Can't delete if member has arrears

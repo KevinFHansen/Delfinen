@@ -22,9 +22,7 @@ public class UIMenu {
 
 
     public void startUI() throws IOException {
-
         ArrayList<Member> memberList = memberManagement.readMemberList();
-
 
         boolean exitProgram = false;
 
@@ -32,84 +30,104 @@ public class UIMenu {
 
             mainMenu();
 
-        int userInput = scn.nextInt();
+            int userInput = scn.nextInt();
 
-        switch (userInput){
+            switch (userInput){
 
-            case 1:
-                memberManagementMenu();
+                case 1:
+                    memberManagementMenu();
 
-                int choice = scn.nextInt();
-                if (choice == 1){
-                    memberManagement.registerMember(memberList);
-                    subscription.generateFee(memberList);
-                    subscription.createSubscriptionlist(memberList);
-                    subscription.addMembersToSub(memberList);
+                    int choice = scn.nextInt();
+                    if (choice == 1){
+                        memberManagement.registerMember(memberList);
+                        ArrayList<Member> memberListToUpdate =  memberList;
 
-                }
+                        subscription.generateFee(memberListToUpdate);
+
+                        ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
+
+                        subscription.createSubscriptionlist(memberSubscriptionList);
+                        //subscription.generateFee(memberList);
+                        //subscription.createSubscriptionlist(memberList);
+                        //subscription.addMembersToSub(memberList);
+
+                    }
                 else if(choice == 2){
-                    memberManagement.updateMember(memberList);
+                        memberManagement.updateMember(memberList);
 
-                }
+                        ArrayList<Member> memberListToUpdate = new ArrayList<Member>();
+
+                        memberListToUpdate = memberList;
+
+                        subscription.generateFee(memberListToUpdate);
+
+                        ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
+
+                        subscription.createSubscriptionlist(memberSubscriptionList);
+
+                    }
                 else if (choice == 3){
-                    memberManagement.removeMember(memberList);
+                        memberManagement.removeMember(memberList);
 
-                }
+                        ArrayList<Member> memberListToUpdate = new ArrayList<Member>();
+
+                        memberListToUpdate = memberList;
+
+                        subscription.generateFee(memberListToUpdate);
+
+                        ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
+
+                        subscription.createSubscriptionlist(memberSubscriptionList);
+
+                    }
                 else if (choice == 4){
-                    memberManagement.viewMember(memberList);
+                        memberManagement.viewMember(memberList);
 
-                }
+                    }
                 else if (choice == 5){
-                    System.out.println("Back");
+                        System.out.println("Back");
 
-                }
+                    }
                 else {
-                    System.out.println("Wrong Input - Try again");
-                }
-                break;
+                        System.out.println("Wrong Input - Try again");
+                    }
+                    break;
 
-            case 2:
+                case 2:
 
-                teamManagement.runTeamManagement();
+                    teamManagement.runTeamManagement();
 
-                break;
+                    break;
 
-            case 3:
+                case 3:
 
-                subManagementMenu();
+                    subManagementMenu();
 
-                ArrayList<Member> memberListToUpdate = memberList;
+                    int choice3 = scn.nextInt();
+                    if (choice3 == 1){
+                        payment.viewArrears();
 
-                subscription.generateFee(memberListToUpdate);
-
-                ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
-
-                subscription.createSubscriptionlist(memberSubscriptionList);
-
-                int choice3 = scn.nextInt();
-                if (choice3 == 1){
-                    payment.viewArrears();
-
-                }
+                    }
                 else if (choice3 == 2){
-                    System.out.println("Expected subscription income: ");
-                    payment.viewExpectedSubIncome();
+                        System.out.println("Expected subscription income: ");
+                        payment.viewExpectedSubIncome();
 
-                }
+                    }
                 else if (choice3 == 0){
 
-                }
+                    }
                 else {
-                    System.out.println("Wrong input");
+                        System.out.println("Wrong input");
 
-                }
-                break;
+                    }
+                    break;
 
 
-            case 0:
-                System.out.println("You choose to exit");
-                exitProgram = true;
-             }
+                case 0:
+                    System.out.println("You choose to exit");
+                    exitProgram = true;
+
+            }
         }
     }
 

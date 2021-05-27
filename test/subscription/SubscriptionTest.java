@@ -3,11 +3,8 @@ package subscription;
 // @author Lars Brogaard Kaiser
 
 import members.Member;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 class SubscriptionTest {
 
