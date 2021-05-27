@@ -3,8 +3,9 @@ package subscription;
 // @author Lars Brogaard Kaiser
 
 import members.Member;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 class SubscriptionTest {
 
@@ -37,10 +38,10 @@ class SubscriptionTest {
         double fee4 = discount.getsubscriptionFee();
 
         // Assert
-        assertEquals(1000,fee1);
-        assertEquals(1600,fee2);
-        assertEquals(500,fee3);
-        assertEquals(1200,fee4);
+        Assertions.assertEquals(1000,fee1);
+        Assertions.assertEquals(1600,fee2);
+        Assertions.assertEquals(500,fee3);
+        Assertions.assertEquals(1200,fee4);
 
     }
 }
