@@ -50,7 +50,7 @@ public class MemberManagement {
         createMemberList(memberList);
     }
 
-    // Se liste over registrerede medlemmer - Giver mulighed for at update direkte
+    // View registered members - Update directly
 
     public static void viewMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner scn = new Scanner(System.in);
@@ -58,6 +58,7 @@ public class MemberManagement {
         for (int i = 0; i < memberList.size(); i++){
             System.out.println(memberList.get(i));
         }
+
 
         System.out.println("Do you want to update a member?");
         System.out.println("1. Yes");
