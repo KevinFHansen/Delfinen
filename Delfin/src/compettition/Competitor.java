@@ -1,9 +1,8 @@
 package compettition;
+// @ Jonas Munk Christensen
 
 import members.Member;
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;

@@ -1,4 +1,5 @@
 package compettition;
+//@author Joachim Malmstrøm
 
 import java.util.ArrayList;
 import java.util.Scanner;

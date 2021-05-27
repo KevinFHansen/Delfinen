@@ -1,6 +1,6 @@
 package compettition;
+// @author Michael Dyvad
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Result2 {

@@ -1,4 +1,5 @@
 package compettition;
+// @author Lars Brogaard Kaiser
 
 import java.io.File;
 import java.io.FileNotFoundException;

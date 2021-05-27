@@ -148,7 +148,6 @@ public class UIMenu {
         System.out.println("5. Back");
     }
 
-
     public void subManagementMenu(){
         System.out.println("1. View Arrears");
         System.out.println("2. View Expected sub income");

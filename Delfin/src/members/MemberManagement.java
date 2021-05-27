@@ -71,7 +71,6 @@ public class MemberManagement {
             else {
 
             }
-
     }
 
 
@@ -154,16 +153,10 @@ public class MemberManagement {
                                 break;
 
                         }
-
-
                     }
-
                     createMemberList(memberList);
-
                 }
-
             }
-
         }
 
         catch (InputMismatchException e) {
@@ -219,9 +212,7 @@ public class MemberManagement {
                 memberList.remove(i);
                 break;
             }
-
         }
-
         createMemberList(memberList);
     }
     // writing list of members to csv-file

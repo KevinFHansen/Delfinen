@@ -1,4 +1,5 @@
 package compettition;
+// @ Jonas Munk Christensen
 
 import members.Member;
 import members.MemberManagement;
