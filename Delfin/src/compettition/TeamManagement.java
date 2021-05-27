@@ -163,7 +163,7 @@ public class TeamManagement {
                     disciplineSubUI();
                     int chosenDiscipline2 = scInt.nextInt()-1;
 
-                    compToUpdateRes.disciplines.get(chosenDiscipline2).results.add(result.registerResult());
+                    compToUpdateRes.disciplines.get(chosenDiscipline2).getResults().add(result.registerResult());
 
                     competitor.createCompFile(compToUpdateRes);
 

@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Discipline {
     private String type;
     private int distance;
-    double bestTraining;
-    double rank;
-    ArrayList<Result2> results;
+    private double bestTraining;
+    private double rank;
+    private ArrayList<Result2> results;
 
     public Discipline(String type, int distance, double bestTraining, ArrayList<Result2> results) {
         this.type = type;
