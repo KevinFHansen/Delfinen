@@ -47,10 +47,10 @@ public class Result2 {
         tempResult.setCompName(sc.nextLine());
 
         System.out.println("Type in placement");
-        tempResult.setPlacement(sc.nextInt());
+        tempResult.setPlacement(Integer.parseInt(sc.nextLine()));
 
         System.out.println("Type in time");
-        tempResult.setCompTime(sc.nextDouble());
+        tempResult.setCompTime(Double.parseDouble(sc.nextLine()));
 
         return tempResult;
     }

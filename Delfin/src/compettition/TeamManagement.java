@@ -163,7 +163,7 @@ public class TeamManagement {
                     disciplineSubUI();
                     int chosenDiscipline2 = scInt.nextInt()-1;
 
-                    compToUpdateRes.disciplines.get(chosenDiscipline2).results.add(result.registerResult());
+                    compToUpdateRes.disciplines.get(chosenDiscipline2).getResults().add(result.registerResult());
 
                     competitor.createCompFile(compToUpdateRes);
 
@@ -186,15 +186,19 @@ public class TeamManagement {
                         if(chosenGender == 1){
 
                             Collections.sort(team.juniorMale, new Competitor.rankCrawl());
+                            System.out.println("Junior Male Crawl:");
                             team.printNames(team.juniorMale, 5);
 
                             Collections.sort(team.juniorMale, new Competitor.rankBackCrawl());
+                            System.out.println("Junior Male Backcrawl:");
                             team.printNames(team.juniorMale, 5);
 
                             Collections.sort(team.juniorMale, new Competitor.rankButterfly());
+                            System.out.println("Junior Male Butterfly:");
                             team.printNames(team.juniorMale, 5);
 
                             Collections.sort(team.juniorMale, new Competitor.rankBreaststroke());
+                            System.out.println("Junior Male Breaststroke:");
                             team.printNames(team.juniorMale, 5);
                         }
 
@@ -202,15 +206,19 @@ public class TeamManagement {
                         else if(chosenGender == 2) {
 
                             Collections.sort(team.juniorFemale, new Competitor.rankCrawl());
+                            System.out.println("Junior Female Crawl:");
                             team.printNames(team.juniorFemale, 5);
 
                             Collections.sort(team.juniorFemale, new Competitor.rankBackCrawl());
+                            System.out.println("Junior Female Backcrawl:");
                             team.printNames(team.juniorFemale, 5);
 
                             Collections.sort(team.juniorFemale, new Competitor.rankButterfly());
+                            System.out.println("Junior Female Butterfly:");
                             team.printNames(team.juniorFemale, 5);
 
                             Collections.sort(team.juniorFemale, new Competitor.rankBreaststroke());
+                            System.out.println("Junior Female Breaststroke:");
                             team.printNames(team.juniorFemale, 5);
                         }
                     }
@@ -222,15 +230,19 @@ public class TeamManagement {
                         if(chosenGender == 1){
 
                             Collections.sort(team.seniorMale, new Competitor.rankCrawl());
+                            System.out.println("Senior Male Crawl:");
                             team.printNames(team.seniorMale, 5);
 
                             Collections.sort(team.seniorMale, new Competitor.rankBackCrawl());
+                            System.out.println("Senior Male Backcrawl:");
                             team.printNames(team.seniorMale, 5);
 
                             Collections.sort(team.seniorMale, new Competitor.rankButterfly());
+                            System.out.println("Senior Male Butterfly:");
                             team.printNames(team.seniorMale, 5);
 
                             Collections.sort(team.seniorMale, new Competitor.rankBreaststroke());
+                            System.out.println("Senior Male Breaststroke:");
                             team.printNames(team.seniorMale, 5);
 
 
@@ -240,15 +252,19 @@ public class TeamManagement {
                         else if(chosenGender == 2){
 
                             Collections.sort(team.seniorFemale, new Competitor.rankCrawl());
+                            System.out.println("Senior Female Crawl:");
                             team.printNames(team.seniorFemale, 5);
 
                             Collections.sort(team.seniorFemale, new Competitor.rankBackCrawl());
+                            System.out.println("Senior Female Backcrawl:");
                             team.printNames(team.seniorFemale, 5);
 
                             Collections.sort(team.seniorFemale, new Competitor.rankButterfly());
+                            System.out.println("Senior Female Butterfly:");
                             team.printNames(team.seniorFemale, 5);
 
                             Collections.sort(team.seniorFemale, new Competitor.rankBreaststroke());
+                            System.out.println("Senior Female Breaststroke:");
                             team.printNames(team.seniorFemale, 5);
 
                         }

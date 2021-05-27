@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class UIMenu {
 
     TeamManagement teamManagement = new TeamManagement();
-    Member member = new Member(null, 0, null,0,null, null, true, true);
     Subscription subscription = new Subscription();
     Payment payment = new Payment();
     MemberManagement memberManagement = new MemberManagement();
@@ -73,39 +72,21 @@ public class UIMenu {
 
                 teamManagement.runTeamManagement();
 
-
-                /**
-                resultManagementMenu();
-
-                int choice1 = scn.nextInt();
-
-                if (choice1 == 1) {
-
-                    trainingResultMenu();
-
-                    int choice2 = scn.nextInt();
-                    if (choice2 == 1){
-                        //registerTrainingResult();
-                    }
-                    else if (choice2 == 2){
-                        //updateTrainingResult();
-                    }
-                    else if (choice2 == 3){
-                        //deleteTrainingResult();
-                    }
-                    else if(choice2 == 4){
-                        //Go back
-                    }
-                    else{
-                        System.out.println("Wrong input - Try again");
-                    }
-                } **/
-
                 break;
 
             case 3:
 
                 subManagementMenu();
+
+                ArrayList<Member> memberListToUpdate = memberList;
+
+                System.out.println(memberListToUpdate.size());
+
+                subscription.generateFee(memberListToUpdate);
+
+                ArrayList<Member> memberSubscriptionList = subscription.addMembersToSub(memberListToUpdate);
+
+                subscription.createSubscriptionlist(memberSubscriptionList);
 
                 int choice3 = scn.nextInt();
                 if (choice3 == 1){
@@ -151,20 +132,6 @@ public class UIMenu {
         System.out.println("5. Back");
     }
 
-    public void resultManagementMenu(){
-        System.out.println("Result Management");
-        System.out.println("1. Training Results");
-        System.out.println("2. Competitive Results");
-        System.out.println("3. Back");
-    }
-
-    public void trainingResultMenu(){
-        System.out.println("Training Results");
-        System.out.println("1. Register Result");
-        System.out.println("2. Update Result");
-        System.out.println("3. Delete Result");
-        System.out.println("4. Back");
-    }
 
     public void subManagementMenu(){
         System.out.println("1. View Arrears");

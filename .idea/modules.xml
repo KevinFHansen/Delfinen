@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Delfin/Delfin.iml" filepath="$PROJECT_DIR$/Delfin/Delfin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Delfinen.iml" filepath="$PROJECT_DIR$/.idea/Delfinen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Delfinen.iml" filepath="$PROJECT_DIR$/Delfinen.iml" />
     </modules>
   </component>
 </project>
