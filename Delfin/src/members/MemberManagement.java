@@ -74,6 +74,8 @@ public class MemberManagement {
 
     }
 
+
+
     public static void updateMember(ArrayList<Member> memberList) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
 
