@@ -1,15 +1,14 @@
 package subscription;
-// @author Michael Dyvad
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.Assertions;
 
 import java.io.FileNotFoundException;
 
-class PaymentTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    //The purpose of the test is to figure out if the sum has the right expected subscription income.
-    @Test
+class ViewSubIncomeTest {
+
+    @org.junit.jupiter.api.Test
     void viewExpectedSubIncome() throws FileNotFoundException {
         //Arrange
         Payment pay = new Payment();
@@ -21,5 +20,6 @@ class PaymentTest {
         //You have to write in the expected subscription income manually when changes occurs.
         //Assert
         Assertions.assertEquals(90200.0, expectedSubIncome);
+
     }
 }
