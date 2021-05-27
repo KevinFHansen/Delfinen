@@ -59,6 +59,7 @@ public class MemberManagement {
             System.out.println(memberList.get(i));
         }
 
+
         System.out.println("Do you want to update a member?");
         System.out.println("1. Yes");
         System.out.println("2. No");
