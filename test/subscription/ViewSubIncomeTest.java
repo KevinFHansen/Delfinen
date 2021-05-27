@@ -19,7 +19,7 @@ class ViewSubIncomeTest {
 
         //You have to write in the expected subscription income manually when changes occurs.
         //Assert
-        Assertions.assertEquals(90200.0, expectedSubIncome);
+        Assertions.assertEquals(180400.0, expectedSubIncome);
 
     }
 }
